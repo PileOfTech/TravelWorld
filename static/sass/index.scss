@@ -1,0 +1,89 @@
+$biruz: #61a08d;
+$l-biruz: #7ac8b4;
+
+body{
+  padding: 0px;
+  margin: 0px;
+}
+
+@font-face{
+  font-family: 'helvetica';
+  src: url('fonts/Helvetica.otf');
+}
+
+#first{
+  background-image: url('images/main.jpg');
+  background-size: cover;
+  background-position: center;
+  .big-logo{
+    position: relative;
+    width: 1100px;
+    height: 400px;
+    margin: 0px auto;
+    transform: translateY(30%);
+    .logo{
+      margin: 0px auto;
+      height: 245px;
+      width: 245px;
+      background-image: url('images/logo.png');
+      background-size: cover;
+      background-repeat: no-repat;
+    }    
+    .logo-text{
+      color: white;
+      font-family: 'helvetica';
+      font-size: 150px;
+      text-align: center;
+    }
+  }
+}
+
+.biruz{
+  background-color: $biruz;
+  .light{
+    position: relative;
+    height: 66%;
+    width: 40%;
+    background-color: $l-biruz;
+    margin: 0 auto;
+    top: 17%;
+  }
+}
+
+#second{
+  transform: translateY(100%);
+  //top: 100%;
+  .tree-cont{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: grey;
+    display: flex;
+    .tree{
+      height: 100%;
+      width: 34%;
+      background-size: cover;
+    }
+    .left{
+      background-image: url('images/left.jpg');
+      background-position: right;
+    }
+    .right{
+      background-image: url('images/right.jpg');
+      background-position: left;
+    }
+  }
+}
+
+.screen{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  //background-color: grey;
+  .shadow{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+  }
+}
