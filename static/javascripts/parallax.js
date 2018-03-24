@@ -3,9 +3,19 @@ $(document).ready(function() {
     $('.screen').css('height', height + 'px')
     var lastScroll = 0;
 
+
+    $('.name-tour').click(function(){
+      $('.hic-modal-window').addClass('open');
+      $('body').css('overflow', 'hidden');
+    });
+    $('.close-hic').click(function(){
+      $('.hic-modal-window').removeClass('open');
+      $('body').css('overflow', 'auto');      
+    });
+
     $(window).scroll(function() {
         var scrolled = Math.round($(window).scrollTop()); 
-        console.log(scrolled);
+        //console.log(scrolled);
         var second = (0 - scrolled*0.3);
         
 
@@ -53,7 +63,32 @@ $(document).ready(function() {
           $('#fourth').removeClass('first-down');
           $('#fourth').addClass('first-up');
         }
-           
+
+        if(scrolled > lastScroll && scrolled > 2400 && scrolled < 2700){
+          $('.egypt').removeClass('return');
+          $('.egypt').addClass('slide');
+          $('.egypt-name').removeClass('return-name');
+          $('.egypt-name').addClass('name-slide');
+        }
+        if(scrolled < lastScroll && scrolled > 2400 && scrolled < 2700){
+          $('.egypt').removeClass('slide');
+          $('.egypt').addClass('return');
+          $('.egypt-name').removeClass('name-slide');
+          $('.egypt-name').addClass('return-name');
+        }        
+
+        if(scrolled > lastScroll && scrolled > 3000 && scrolled < 3300){
+          $('.new-zeland').removeClass('return');
+          $('.new-zeland').addClass('slide');
+          $('.new-zeland-name').addClass('zeland-name-slide');
+          $('.new-zeland-name').removeClass('return-name');          
+        }
+        if(scrolled < lastScroll && scrolled > 3000 && scrolled < 3300){
+          $('.new-zeland').removeClass('slide');
+          $('.new-zeland').addClass('return');
+          $('.new-zeland-name').removeClass('zeland-name-slide');
+          $('.new-zeland-name').addClass('return-name');          
+        }      
 
         /*THIRD SLIDE*/
         // if(scrolled > lastScroll && scrolled > 400){

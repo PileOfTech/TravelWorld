@@ -133,7 +133,14 @@ body{
     }
   }
 }
-
+.slide{
+  transition: 2s;
+  transform: translateX(0%) !important;
+} 
+.return{
+  transition: 2s;
+  transform: translateX(100%);    
+}
 
 #third{
   top: 150%;
@@ -250,12 +257,190 @@ body{
 
 #fourth{
   top: 450%;
-  background-color: grey;
-  z-index: 100;
+  background-color: white;
+  z-index: 150;
+  width: 100%;
+  display: inline-block;
+  background-image: url('images/sky.png');
+  background-size: cover;
+  background-position: center;
+  .hic-modal-window{
+    height: 105%;
+    width: 100%;
+    position: absolute;
+    z-index: 400;
+    background-color: white;
+    display: none;
+    .close-hic{
+      position: absolute;
+      height: 50px;
+      width: 50px;
+      top: 50px;
+      right: 50px;
+      background-image: url('images/close-red.svg');
+      background-size: cover;
+      cursor: pointer;
+      &:hover{
+        transform: scale(1.1,1.1);
+      }
+    }
+  }
+  .open{
+    display: block !important;
+  }
+  .man{
+    z-index: 260;
+    position: absolute;
+    height: 105%;
+    width: 100%;
+    background-image: url('images/man.png');
+    background-size: cover;
+    background-position: center bottom;        
+  }
+  .logo-cont{
+    position: absolute;
+    width: 270px;
+    height: 60px;
+    margin-top: 20px;
+    left: 30px;
+    display: flex;
+    flex-wrap: nowrap;
+    z-index: 270;
+    cursor: pointer;
+    .text{
+      width: 210px;
+      height: 60px;
+      font-family: 'helvetica';
+      color: white;
+      font-size: 40px;
+      padding-top: 10px;
+    }
+    .logo{
+      height: 60px;
+      width: 60px;
+      background-image: url('images/logo.png');
+      background-size: cover;
+    }
+  }  
+  .right{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-image: url('images/shadow.png');
+    background-size: cover;
+    background-position: left;
+    z-index: 250;  
+    .description{
+      position: relative;
+      height: 40%;
+      width: 300px;
+      top: 30%;
+      left: 75px;
+      color: white;
+      &:hover{
+        background-color: grey;
+      }
+      .title{
+        font-size: 55px;
+        font-family: 'arial-black';      
+      }
+      .text{
+        padding-top: 15px;
+        font-size: 15px;
+        line-height: 1.5;
+        font-family: 'Arial';
+      }
+    }
+  }
+  .name-tour{
+    width: auto;
+    position: absolute;
+    color: white;
+    font-size: 80px;
+    right: 75px;
+    z-index: 270;
+    cursor: pointer;
+    transition: 1s !important;  
+    &:hover{
+      transform: scale(1.1, 1.1) !important;
+    }      
+  }
+  .alaska-name{
+    top: 30%;
+    font-family: 'sports';
+  }
+  .egypt-name{
+    transform: translateX(500px);
+    top: 45%;
+    font-family: 'streamster';
+    &:hover{
+      transform: scale(1.1, 1.1) translateX(-120px) !important ;
+    }       
+  }
+  .new-zeland-name{
+    transform: translateX(500px);
+    top: 70%;    
+    font-family: 'cross-town';
+    &:hover{
+      transform: scale(1.1, 1.1) translateX(-50px) !important ;
+    }     
+  }  
+  .zeland-name-slide{
+    transition: 1s;
+    transform: translateX(-50px) !important;
+  } 
+  .return-name{
+    transition: 1s;
+    transform: translateX(500px);  
+  }
+
+  .name-slide{
+    transition: 1s;
+    transform: translateX(-120px)!important;
+  }   
+  .alaska{
+    transform: translateX(0%);      
+    z-index: 155;
+    position: relative;
+    background-image: url('images/alaska-01.png');
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    &:hover{
+      cursor: pointer;
+    }    
+  }
+
+  .egypt{
+    transform: translateX(100%);     
+    z-index: 165;
+    position: relative;
+    background-image: url('images/egypt-01.jpg');
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+  }
+
+  .new-zeland{
+    transform: translateX(100%);     
+    z-index: 165;
+    position: relative;
+    background-image: url('images/new-zeland-01.jpg');
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+  }
+
 }
 
 #fifth{
-  top: 550%;
+  top: 750%;
   background-color: green;
   z-index: 150;
 }
