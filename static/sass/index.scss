@@ -11,10 +11,52 @@ body{
   src: url('fonts/Helvetica.otf');
 }
 
+@font-face{
+  font-family: 'arial-black';
+  src: url('fonts/ArialBlack.ttf');
+}
+
+@font-face{
+  font-family: 'arial-narrow';
+  src: url('fonts/ArialNarrow.ttf');
+}
+
+@font-face{
+  font-family: 'cross-town';
+  src: url('fonts/CrossTown.ttf');
+}
+
+@font-face{
+  font-family: 'sports';
+  src: url('fonts/SportsWorld.ttf');
+}
+
+@font-face{
+  font-family: 'stolsl';
+  src: url('fonts/Stolzl-Regular.otf');
+}
+
+@font-face{
+  font-family: 'streamster';
+  src: url('fonts/Streamster.ttf');
+}
+
+.screen{
+  position: absolute;
+  width: 100%;
+  .shadow{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+  }
+}
+
 #first{
   background-image: url('images/main.jpg');
   background-size: cover;
   background-position: center;
+  position: fixed;
   .big-logo{
     position: relative;
     width: 1100px;
@@ -45,14 +87,31 @@ body{
     height: 66%;
     width: 40%;
     background-color: $l-biruz;
+    background-image: url('images/palma.png');
+    background-size: cover;
+    background-position: center;
     margin: 0 auto;
     top: 17%;
   }
+  .text{
+    position: absolute;
+    height: 60%;
+    margin-top: 13%;
+    font-size: 90px;
+    line-height: 1.2;
+    letter-spacing: 8px;
+    font-weight: 500;
+    color: black;
+    z-index: 10;
+    font-family: 'helvetica';
+    width: 34%;
+    text-align: center;
+  }
 }
 
+
 #second{
-  transform: translateY(100%);
-  //top: 100%;
+  top: 110%;
   .tree-cont{
     position: absolute;
     height: 100%;
@@ -75,15 +134,159 @@ body{
   }
 }
 
-.screen{
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  //background-color: grey;
-  .shadow{
-    position: absolute;
-    width: 100%;
+
+#third{
+  top: 150%;
+  z-index: 50;
+  width: auto;
+  display: inline-block;
+  .sea-01{
+    position: relative;
+    background-image: url('images/sea-01.jpg');
+    background-size: cover;
+    background-position: center;
+    position: fixed;
     height: 100%;
-    background-color: rgba(0,0,0,0.3);
+    width: 100%;
   }
+  .sea-02{
+    transform: translateX(100%);
+    position: relative;
+    background-image: url('images/sea-03.jpg');
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+  } 
+  .sea-slide{
+    transition: 2s;
+    transform: translateX(0%);
+  } 
+  .sea-return{
+    transition: 2s;
+    transform: translateX(100%);    
+  }
+  .logo-cont{
+    position: absolute;
+    width: 270px;
+    height: 60px;
+    top: 20px;
+    right: 30px;
+    display: flex;
+    flex-wrap: nowrap;
+    .text{
+      width: 210px;
+      height: 60px;
+      font-family: 'helvetica';
+      color: white;
+      font-size: 40px;
+      padding-top: 10px;
+    }
+    .logo{
+      height: 60px;
+      width: 60px;
+      background-image: url('images/logo.png');
+      background-size: cover;
+    }
+  }
+  .info-cont{
+    position: relative;
+    height: 300px;
+    width: 1100px;
+    margin: 0px auto;
+    margin-top: 200px;
+    display: flex;
+    flex-wrap: nowrap;
+    .tours{
+      min-width: 700px;
+      max-width: 700px;
+      height: 100%;
+      .tour{
+        height: 50%;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        .title{
+          text-align: center;
+          color: white;
+          font-family: 'helvetica';
+          font-size: 50px;
+          padding-top: 60px;
+        }
+      }
+      .first-tour{
+        background-image: url('images/slim-01.png');
+      }
+      .second-tour{
+        background-image: url('images/slim-02.jpg');
+      }
+    }
+    .desc{
+      width: 100%;
+      height: 100%;
+      .title{
+        position: absolute;
+        top: -10px;
+        font-size: 38px;
+        padding-left: 50px;
+        font-family: 'stolsl';
+        color: white;
+      }
+      p{
+        color: white;
+        font-family: 'Arial';
+        font-weight: 100;
+        font-size: 15px;
+        padding-left: 50px;
+        padding-right: 40px;
+        padding-top: 50px;
+        line-height: 20px;
+      }
+    }
+  }
+}
+
+#fourth{
+  top: 450%;
+  background-color: grey;
+  z-index: 100;
+}
+
+#fifth{
+  top: 550%;
+  background-color: green;
+  z-index: 150;
+}
+
+.first-down{
+  transition: 2s;
+  top: 0px !important;
+  position: fixed;
+}
+
+.second-down{
+  transition: 2s;
+  top: 0px !important;
+  position: fixed;
+}
+
+.first-up{
+  position: absolute;
+  transition: 1s;
+  top: 60%;
+}
+
+.second-up{
+  position: absolute;
+  transition: 3s;
+  top: 150%;
+}
+
+
+.last{
+  position: absolute;
+  transition: 2s;
+  top: 90% !important;
 }
