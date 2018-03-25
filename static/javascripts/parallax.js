@@ -4,6 +4,29 @@ $(document).ready(function() {
     var lastScroll = 0;
 
 
+
+    function whichTransitionEvent(){
+      var t,
+          el = document.createElement("fakeelement");
+
+      var transitions = {
+        "transition"      : "transitionend",
+        "OTransition"     : "oTransitionEnd",
+        "MozTransition"   : "transitionend",
+        "WebkitTransition": "webkitTransitionEnd"
+      }
+
+      for (t in transitions){
+        if (el.style[t] !== undefined){
+          return transitions[t];
+        }
+      }
+    }
+
+    var transitionEvent = whichTransitionEvent();
+
+
+    /*Modal controll*/
     $('.name-tour').click(function(){
       $('.hic-modal-window').addClass('open');
       $('body').css('overflow', 'hidden');
@@ -25,6 +48,31 @@ $(document).ready(function() {
       $('.theme').removeClass('active');
     });
 
+    function blockDown(element){
+      if(!element.hasClass("first-down")){
+        element.removeClass('first-up');
+        element.addClass('first-down');    
+        $('body').css('overflow-y', 'hidden');
+        element.one(transitionEvent, function(event) {
+          $('body').css('overflow-y', 'auto');
+        });
+        element.css('position', 'fixed');
+      }      
+    }
+
+    function blockUp(element){
+      if(!element.hasClass("first-up")){
+        element.removeClass('first-down');
+        element.addClass('first-up');    
+        $('body').css('overflow-y', 'hidden');
+        element.one(transitionEvent, function(event) {
+          $('body').css('overflow-y', 'auto');
+        });
+        element.css('position', 'fixed');
+      }   
+    }
+
+
     $(window).scroll(function() {
         var scrolled = Math.round($(window).scrollTop()); 
         //console.log(scrolled);
@@ -36,23 +84,38 @@ $(document).ready(function() {
 
         /*FIRST SLIDE*/
         if (scrolled > lastScroll && scrolled < 550) {
-          $('#second').addClass('first-down');
-          $('#second').css('position', 'fixed');
+          var element = $("#second");
+          blockDown(element);
+          // if(!$("#second").hasClass("first-down")){
+          //   console.log('exist');
+          //   $('#second').addClass('first-down');    
+          //   $('body').css('overflow-y', 'hidden');
+          //   $('#second').one(transitionEvent, function(event) {
+          //     $('body').css('overflow-y', 'auto');
+          //   });
+          //   $('#second').css('position', 'fixed');
+          // }
         }
         if (scrolled < lastScroll && scrolled < 400) {
-          $('#second').removeClass('first-down');
-          $('#second').addClass('first-up');
+          var element = $("#second");
+          blockUp(element);
+          // $('#second').removeClass('first-down');
+          // $('#second').addClass('first-up');
         }        
 
 
         /*SECOND SLIDE*/
         if (scrolled > lastScroll && scrolled > 550 && scrolled < 800) {
-          $('#third').addClass('first-down');
-          $('#third').css('position', 'fixed');
+          var element = $("#third");
+          blockDown(element);          
+          // $('#third').addClass('first-down');
+          // $('#third').css('position', 'fixed');
         }
         if (scrolled < lastScroll && scrolled > 550 && scrolled < 600) {
-          $('#third').removeClass('first-down');
-          $('#third').addClass('first-up');
+          var element = $("#third");
+          blockUp(element);          
+          // $('#third').removeClass('first-down');
+          // $('#third').addClass('first-up');
         }
 
 
