@@ -4,6 +4,7 @@ $l-biruz: #7ac8b4;
 body{
   padding: 0px;
   margin: 0px;
+  overflow-x: hidden !important;
 }
 
 @font-face{
@@ -271,19 +272,67 @@ body{
     z-index: 400;
     background-color: white;
     display: none;
+
+    .theme{
+      height: 100%;
+      width: 100%;
+      position: position;
+    }
+    .yellow-theme, .green-theme{
+      display: inline-block;
+      .desc-block{
+        position: relative;
+        height: 100%;
+        min-width: 30%;
+        max-width: 30%;
+        width: 30%;
+        background-color: grey;
+      }
+      .cover{
+        position: relative;
+        height: 100%;
+        width: 70%;
+        background-size: cover;
+        background-position: center;
+        top: 0px;       
+      }
+      .yellow-cover{
+        background-image: url('images/yellow-01.jpg');
+      }
+    }
+    .red-theme{
+      display: none;
+    }
+    .yellow-theme{
+      display: none;
+    }
+    .green-theme{
+      display: none;
+    }        
+    .active{
+      display: block !important;
+    }
     .close-hic{
       position: absolute;
       height: 50px;
       width: 50px;
       top: 50px;
       right: 50px;
-      background-image: url('images/close-red.svg');
       background-size: cover;
       cursor: pointer;
       &:hover{
         transform: scale(1.1,1.1);
       }
     }
+    .close-red{
+      background-image: url('images/ui/close-red.svg');
+    }
+    .close-yellow{
+      background-image: url('images/ui/close-yellow.svg');
+    }
+    .close-green{
+      background-image: url('images/ui/close-green.svg');
+    }    
   }
   .open{
     display: block !important;
@@ -295,7 +344,7 @@ body{
     width: 100%;
     background-image: url('images/man.png');
     background-size: cover;
-    background-position: center bottom;        
+    background-position: center;        
   }
   .logo-cont{
     position: absolute;

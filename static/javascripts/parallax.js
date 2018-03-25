@@ -7,10 +7,22 @@ $(document).ready(function() {
     $('.name-tour').click(function(){
       $('.hic-modal-window').addClass('open');
       $('body').css('overflow', 'hidden');
+      var theme = $(this).attr('theme');
+      if(theme == "red"){
+        $('.red-theme').addClass('active');
+      }
+      if(theme == "yellow"){
+        $('.yellow-theme').addClass('active');
+      }      
+      if(theme == "green"){
+        $('.green-theme').addClass('active');
+      }        
     });
+    
     $('.close-hic').click(function(){
       $('.hic-modal-window').removeClass('open');
-      $('body').css('overflow', 'auto');      
+      $('body').css('overflow', 'auto');
+      $('.theme').removeClass('active');
     });
 
     $(window).scroll(function() {
