@@ -42,9 +42,9 @@ body{
   src: url('fonts/Streamster.ttf');
 }
 
-// body::-webkit-scrollbar{
-//   width: 1em;
-// }
+body::-webkit-scrollbar{
+  width: 0;
+}
 
 .screen{
   position: absolute;
