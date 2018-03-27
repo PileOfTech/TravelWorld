@@ -1,10 +1,10 @@
 $(document).ready(function() {
     clearPage();
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 2020);
      $('html, body').stop().animate( {
       'scrollTop': 0
     }, 900)
-    console.log($(window).scrollTop());
+    //console.log($(window).scrollTop());
 
     height = $(window).height();
     $('.screen').css('height', height + 'px')
@@ -13,8 +13,7 @@ $(document).ready(function() {
 
     function clearPage(){
       var els = [$(".screen"), $('.sea-02'), $('#fourth'),
-        $('.egypt'), $('.new-zeland')]; 
-        //console.log(els);       
+        $('.egypt'), $('.new-zeland')];       
         for(ind in els){
           el = els[ind];
           console.log(el);
@@ -119,7 +118,7 @@ $(document).ready(function() {
         $('#second').css('top', (height - scrolled) + 'px');
 
         /*FIRST SLIDE*/
-        if (scrolled > lastScroll && scrolled < 550) {
+        if (scrolled > lastScroll && scrolled < 400) {
           var element = $("#second");
           blockDown(element);
         }

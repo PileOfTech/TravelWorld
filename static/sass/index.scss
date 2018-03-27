@@ -1,5 +1,8 @@
 $biruz: #61a08d;
 $l-biruz: #7ac8b4;
+$egypt: #cc9312;
+$l-egypt: #fbf2d0;
+$egypt-buy: #cc9312;
 
 body{
   padding: 0px;
@@ -40,6 +43,16 @@ body{
 @font-face{
   font-family: 'streamster';
   src: url('fonts/Streamster.ttf');
+}
+
+@font-face{
+  font-family: 'calibri';
+  src: url('fonts/Calibri.ttf');
+}
+
+@font-face{
+  font-family: 'trebuchet';
+  src: url('fonts/TrebuchetMS.ttf');
 }
 
 body::-webkit-scrollbar{
@@ -272,6 +285,7 @@ body::-webkit-scrollbar{
   .hic-modal-window{
     height: 105%;
     width: 100%;
+    top: 0;
     position: absolute;
     z-index: 400;
     background-color: white;
@@ -280,25 +294,111 @@ body::-webkit-scrollbar{
     .theme{
       height: 100%;
       width: 100%;
-      position: position;
+      position: absolute;
+      display: flex;
+      flex-direction: row;
+    }
+    .yellow-theme{
+      .close-hic{
+        background-image: url('images/ui/close-yellow.svg');
+      }      
+      .content-container{
+        .title{
+          color: $egypt;
+        }
+        .star-line{
+          .star{
+            background-image: url('images/ui/star-yellow.svg');
+          }
+          .empty-star{
+            background-image: url('images/ui/star-yellow-hide.svg');
+          }
+        }  
+        .button-buy{
+          background-color: $l-egypt;
+          color: $egypt-buy;
+        }      
+      }
+    }
+    .green-theme{
+      .close-hic{
+        background-image: url('images/ui/close-green.svg');
+      } 
     }
     .yellow-theme, .green-theme{
-      display: inline-block;
       .desc-block{
         position: relative;
         height: 100%;
         min-width: 30%;
-        max-width: 30%;
         width: 30%;
-        background-color: grey;
+        max-width: 30%;
+        z-index: 410;
+        background-color: white;
+        .content-container{
+          height: auto;
+          width: 70%;
+          margin-left: 15%;
+          margin-top: 20%;
+          .title{
+            height: auto;
+            font-weight: 500;
+            font-size: 35px;
+            line-height: 1.2;
+            font-family: 'arial-black';
+          }
+          .text{
+            padding-top: 20px;
+            height: auto;
+            font-family: 'calibri';
+            font-size: '15px';
+            color: black;
+          }
+          .star-line{
+            margin-top: 30px;
+            height: 40px;
+            display: flex;
+            flex-direction: row;
+            .star, .empty-star{
+              height: 40px;
+              width: 40px;
+              background-size: cover;
+              background-position: center;
+              cursor: pointer;
+              &:not(:first-child){
+                margin-left: 4px;
+              }
+            }
+          }
+          .button-buy{
+            margin-top: 40px;
+            width: 90%;
+            height: 40px;
+            cursor: pointer;
+            &:hover{
+              .butt-text{
+                font-size: 25px;
+                word-spacing: 7px;
+                padding-top: 5px;
+              }
+            }
+            .butt-text{
+              transition: 0.7s ease-out;
+              font-size:  20px;
+              font-family: 'trebuchet';
+              text-align: center;
+              padding-top: 10px;
+            }
+          }
+        }
       }
       .cover{
         position: relative;
         height: 100%;
-        width: 70%;
+        width: 100%;
         background-size: cover;
         background-position: center;
-        top: 0px;       
+        top: 0px;  
+        z-index: 410;     
       }
       .yellow-cover{
         background-image: url('images/yellow-01.jpg');
@@ -314,7 +414,7 @@ body::-webkit-scrollbar{
       display: none;
     }        
     .active{
-      display: block !important;
+      display: flex !important;
     }
     .close-hic{
       position: absolute;
@@ -324,19 +424,14 @@ body::-webkit-scrollbar{
       right: 50px;
       background-size: cover;
       cursor: pointer;
+      z-index: 500;
       &:hover{
         transform: scale(1.1,1.1);
       }
     }
     .close-red{
       background-image: url('images/ui/close-red.svg');
-    }
-    .close-yellow{
-      background-image: url('images/ui/close-yellow.svg');
-    }
-    .close-green{
-      background-image: url('images/ui/close-green.svg');
-    }    
+    }   
   }
   .open{
     display: block !important;
