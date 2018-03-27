@@ -1,8 +1,11 @@
 $biruz: #61a08d;
 $l-biruz: #7ac8b4;
 $egypt: #cc9312;
+$zealand: #3f8f36;
 $l-egypt: #fbf2d0;
+$l-zealand: #d1face;
 $egypt-buy: #cc9312;
+$zealand-buy: #477142;
 
 body{
   padding: 0px;
@@ -301,7 +304,10 @@ body::-webkit-scrollbar{
     .yellow-theme{
       .close-hic{
         background-image: url('images/ui/close-yellow.svg');
-      }      
+      }  
+      .cover{
+        background-image: url('images/yellow-01.jpg');
+      }          
       .content-container{
         .title{
           color: $egypt;
@@ -324,6 +330,26 @@ body::-webkit-scrollbar{
       .close-hic{
         background-image: url('images/ui/close-green.svg');
       } 
+      .cover{
+        background-image: url('images/new-zealand-01.jpg');
+      }        
+      .content-container{
+        .title{
+          color: $zealand;
+        }
+        .star-line{
+          .star{
+            background-image: url('images/ui/star-green.svg');
+          }
+          .empty-star{
+            background-image: url('images/ui/star-green-hide.svg');
+          }
+        }  
+        .button-buy{
+          background-color: $l-zealand;
+          color: $zealand-buy;
+        }      
+      }      
     }
     .yellow-theme, .green-theme{
       .desc-block{
@@ -399,9 +425,6 @@ body::-webkit-scrollbar{
         background-position: center;
         top: 0px;  
         z-index: 410;     
-      }
-      .yellow-cover{
-        background-image: url('images/yellow-01.jpg');
       }
     }
     .red-theme{
