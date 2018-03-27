@@ -1,9 +1,50 @@
 $(document).ready(function() {
+    clearPage();
+    window.scrollTo(0, 0);
+     $('html, body').stop().animate( {
+      'scrollTop': 0
+    }, 900)
+    console.log($(window).scrollTop());
+
     height = $(window).height();
     $('.screen').css('height', height + 'px')
     var lastScroll = 0;
 
 
+    function clearPage(){
+      var els = [$(".screen"), $('.sea-02'), $('#fourth'),
+        $('.egypt'), $('.new-zeland')]; 
+        //console.log(els);       
+        for(ind in els){
+          el = els[ind];
+          console.log(el);
+          el.removeClass("first-down");
+          el.removeClass("first-up");
+          el.removeClass("slide");
+          el.removeClass("return");
+        }
+    }
+    function whichTransitionEvent(){
+      var t, el = document.createElement("fakeelement");
+
+      var transitions = {
+        "transition"      : "transitionend",
+        "OTransition"     : "oTransitionEnd",
+        "MozTransition"   : "transitionend",
+        "WebkitTransition": "webkitTransitionEnd"
+      }
+
+      for (t in transitions){
+        if (el.style[t] !== undefined){
+          return transitions[t];
+        }
+      }
+    }
+
+    var transitionEvent = whichTransitionEvent();
+
+
+    /*Modal controll*/
     $('.name-tour').click(function(){
       $('.hic-modal-window').addClass('open');
       $('body').css('overflow', 'hidden');
@@ -25,79 +66,114 @@ $(document).ready(function() {
       $('.theme').removeClass('active');
     });
 
+    function blockDown(element){
+      if(!element.hasClass("first-down")){
+        element.removeClass('first-up');
+        element.addClass('first-down');    
+        $('body').css('overflow-y', 'hidden');
+        element.one(transitionEvent, function(event) {
+          $('body').css('overflow-y', 'auto');
+        });
+        element.css('position', 'fixed');
+      }      
+    }
+
+    function blockUp(element){
+      if(!element.hasClass("first-up")){
+        element.removeClass('first-down');
+        element.addClass('first-up');    
+        $('body').css('overflow-y', 'hidden');
+        element.one(transitionEvent, function(event) {
+          $('body').css('overflow-y', 'auto');
+        });
+        element.css('position', 'fixed');
+      }   
+    }
+
+    function blockLeft(element, prefix=""){
+      if(!element.hasClass(prefix+"slide")){
+        element.removeClass(prefix+'return');
+        element.addClass(prefix+'slide');
+        $('body').css('overflow-y', 'hidden');
+        element.one(transitionEvent, function(event) {
+          $('body').css('overflow-y', 'auto');
+        });                
+      }      
+    }
+    function blockRight(element, prefix = ""){
+      if(!element.hasClass(prefix+"return")){
+        element.removeClass(prefix+'slide');
+        element.addClass(prefix+'return');
+        $('body').css('overflow-y', 'hidden');
+        element.one(transitionEvent, function(event) {
+          $('body').css('overflow-y', 'auto');
+        });                
+      }      
+    }    
+
     $(window).scroll(function() {
         var scrolled = Math.round($(window).scrollTop()); 
         //console.log(scrolled);
         var second = (0 - scrolled*0.3);
         
-
         $('#second').css('top', (height - scrolled) + 'px');
-
 
         /*FIRST SLIDE*/
         if (scrolled > lastScroll && scrolled < 550) {
-          $('#second').addClass('first-down');
-          $('#second').css('position', 'fixed');
+          var element = $("#second");
+          blockDown(element);
         }
         if (scrolled < lastScroll && scrolled < 400) {
-          $('#second').removeClass('first-down');
-          $('#second').addClass('first-up');
+          var element = $("#second");
+          blockUp(element);
         }        
-
 
         /*SECOND SLIDE*/
         if (scrolled > lastScroll && scrolled > 550 && scrolled < 800) {
-          $('#third').addClass('first-down');
-          $('#third').css('position', 'fixed');
+          var element = $("#third");
+          blockDown(element);          
         }
         if (scrolled < lastScroll && scrolled > 550 && scrolled < 600) {
-          $('#third').removeClass('first-down');
-          $('#third').addClass('first-up');
+          var element = $("#third");
+          blockUp(element);          
         }
-
 
         /*SEA SLIDER*/
         if(scrolled > lastScroll && scrolled > 1200 && scrolled < 1400){
-          $('.sea-02').removeClass('sea-return');
-          $('.sea-02').addClass('sea-slide');
+          blockLeft($('.sea-02'), "sea-");
         }
         if(scrolled < lastScroll && scrolled > 1200 && scrolled < 1400){
-          $('.sea-02').removeClass('sea-slide');
-          $('.sea-02').addClass('sea-return');
+          blockRight($('.sea-02'), "sea-");
         }
 
         /*HIKING SLIDE*/
         if (scrolled > lastScroll && scrolled > 1700 && scrolled < 1900) {
-          $('#fourth').addClass('first-down');
-          $('#fourth').css('position', 'fixed');
+          // $('#fourth').addClass('first-down');
+          // $('#fourth').css('position', 'fixed');
+          blockDown($('#fourth'), "sea-");
         }
         if (scrolled < lastScroll && scrolled > 1700 && scrolled < 1900) {
-          $('#fourth').removeClass('first-down');
-          $('#fourth').addClass('first-up');
+          blockUp($('#fourth'), "sea-");
         }
 
         if(scrolled > lastScroll && scrolled > 2400 && scrolled < 2700){
-          $('.egypt').removeClass('return');
-          $('.egypt').addClass('slide');
+          blockLeft($('.egypt'));
           $('.egypt-name').removeClass('return-name');
           $('.egypt-name').addClass('name-slide');
         }
         if(scrolled < lastScroll && scrolled > 2400 && scrolled < 2700){
-          $('.egypt').removeClass('slide');
-          $('.egypt').addClass('return');
+          blockRight($('.egypt'));
           $('.egypt-name').removeClass('name-slide');
           $('.egypt-name').addClass('return-name');
         }        
 
         if(scrolled > lastScroll && scrolled > 3000 && scrolled < 3300){
-          $('.new-zeland').removeClass('return');
-          $('.new-zeland').addClass('slide');
+          blockLeft($('.new-zeland'));
           $('.new-zeland-name').addClass('zeland-name-slide');
           $('.new-zeland-name').removeClass('return-name');          
         }
         if(scrolled < lastScroll && scrolled > 3000 && scrolled < 3300){
-          $('.new-zeland').removeClass('slide');
-          $('.new-zeland').addClass('return');
+          blockRight($('.new-zeland'));
           $('.new-zeland-name').removeClass('zeland-name-slide');
           $('.new-zeland-name').addClass('return-name');          
         }      
