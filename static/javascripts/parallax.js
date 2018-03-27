@@ -16,7 +16,7 @@ $(document).ready(function() {
         $('.egypt'), $('.new-zeland')];       
         for(ind in els){
           el = els[ind];
-          console.log(el);
+          //console.log(el);
           el.removeClass("first-down");
           el.removeClass("first-up");
           el.removeClass("slide");
@@ -189,5 +189,15 @@ $(document).ready(function() {
 
         lastScroll = scrolled;
 
+    });
+
+    $(".red-slider").slick({
+      infinite: false,
+      speed: 500,
+      dots: true,
+      arrows: false,
+      centerMode: true,
+      centerPadding: '0px',
+      slidesToShow: 1      
     });
 });

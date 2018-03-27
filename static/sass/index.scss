@@ -1,9 +1,12 @@
 $biruz: #61a08d;
 $l-biruz: #7ac8b4;
+$alaska: #cc1216;
 $egypt: #cc9312;
 $zealand: #3f8f36;
+$l-alaska: #fbd0d0;
 $l-egypt: #fbf2d0;
 $l-zealand: #d1face;
+$alaska-buy: #770e10;
 $egypt-buy: #cc9312;
 $zealand-buy: #477142;
 
@@ -301,6 +304,73 @@ body::-webkit-scrollbar{
       display: flex;
       flex-direction: row;
     }
+    .red-theme{
+      .slick-slider, .slick-list, .slick-track {
+        height: 100%;
+      }   
+      .slick-slide{
+        margin: 0px 0px;
+      }
+      .slick-dots {
+          bottom: 40px;
+          li{
+            height: 20px !important;
+            width: 20px !important;
+            border-radius: 50%;
+            background-color: $l-alaska;
+            &:hover{
+              background-color: $alaska;
+            }
+            &.slick-active{
+              background-color: $alaska-buy;
+            }
+            button:before {
+              content: none;  
+            }
+          }
+      }      
+      .close-hic{
+        background-image: url('images/ui/close-red.svg');
+      }          
+      .alaska-01{
+        background-image: url('images/alaska-01.jpg');
+      }   
+      .alaska-02{
+        background-image: url('images/alaska-02.jpg');
+      }   
+      .alaska-03{
+        background-image: url('images/alaska-03.jpg');
+      }                       
+      .red-slider{
+        position: relative;
+        height: 100%;
+        width: 100%;
+        .red-el{
+          height: 100%;
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          .content-container{
+            .title{
+              color: $alaska;
+            }
+            .star-line{
+              .star{
+                background-image: url('images/ui/star-red.svg');
+              }
+              .empty-star{
+                background-image: url('images/ui/star-red-hide.svg');
+              }
+            }  
+            .button-buy{
+              background-color: $l-alaska;
+              color: $alaska-buy;
+            }      
+          }
+        }
+      }
+    }
+
     .yellow-theme{
       .close-hic{
         background-image: url('images/ui/close-yellow.svg');
@@ -351,7 +421,7 @@ body::-webkit-scrollbar{
         }      
       }      
     }
-    .yellow-theme, .green-theme{
+    .yellow-theme, .green-theme, .red-theme{
       .desc-block{
         position: relative;
         height: 100%;
@@ -451,10 +521,7 @@ body::-webkit-scrollbar{
       &:hover{
         transform: scale(1.1,1.1);
       }
-    }
-    .close-red{
-      background-image: url('images/ui/close-red.svg');
-    }   
+    }  
   }
   .open{
     display: block !important;
