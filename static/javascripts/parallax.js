@@ -1,13 +1,12 @@
 $(document).ready(function() {
     clearPage();
-    // window.scrollTo(0, 2020);
-     $('html, body').stop().animate( {
-      'scrollTop': 0
-    }, 900)
     //console.log($(window).scrollTop());
 
     height = $(window).height();
     $('.screen').css('height', height + 'px')
+     $('html, body').stop().animate( {
+      'scrollTop': 0
+    }, 10);
     var lastScroll = 0;
 
 
@@ -43,7 +42,20 @@ $(document).ready(function() {
     var transitionEvent = whichTransitionEvent();
 
 
-    /*Modal controll*/
+    /*Modal controll for sea-slide*/
+    $('.tour').click(function(){
+      $('.sea-modal-window').addClass('open');
+      $('body').css('overflow', 'hidden'); 
+      var theme = $(this).attr('theme');
+      if(theme == "bali"){
+        $('.bali').addClass('active');
+      }
+      if(theme == "LA"){
+        $('.LA').addClass('active');
+      }                 
+    });
+
+    /*Modal controll for hicing*/
     $('.name-tour').click(function(){
       $('.hic-modal-window').addClass('open');
       $('body').css('overflow', 'hidden');
@@ -59,6 +71,14 @@ $(document).ready(function() {
       }        
     });
     
+    /*Close sea*/
+    $('.close-sea').click(function(){
+      $('.sea-modal-window').removeClass('open');
+      $('body').css('overflow', 'auto');
+      //$('.theme').removeClass('active');
+    });
+
+    /*Close hicing*/
     $('.close-hic').click(function(){
       $('.hic-modal-window').removeClass('open');
       $('body').css('overflow', 'auto');
@@ -192,12 +212,14 @@ $(document).ready(function() {
     });
 
     $(".red-slider").slick({
-      infinite: false,
+      infinite: true,
       speed: 500,
       dots: true,
       arrows: false,
       centerMode: true,
       centerPadding: '0px',
-      slidesToShow: 1      
+      slidesToShow: 1,
+      autoplay: true,
+      autoplaySpeed: 3500,          
     });
 });
