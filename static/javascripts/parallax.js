@@ -4,11 +4,13 @@ $(document).ready(function() {
 
     height = $(window).height();
     $('.screen').css('height', height + 'px')
-     $('html, body').stop().animate( {
-      'scrollTop': 0
-    }, 10);
+
     var lastScroll = 0;
 
+
+    $('.main-link').click(function(){
+
+    });
 
     function clearPage(){
       var els = [$(".screen"), $('.sea-02'), $('#fourth'),
@@ -21,6 +23,7 @@ $(document).ready(function() {
           el.removeClass("slide");
           el.removeClass("return");
         }
+        window.scrollTo(0, 0);
     }
     function whichTransitionEvent(){
       var t, el = document.createElement("fakeelement");
@@ -41,18 +44,26 @@ $(document).ready(function() {
 
     var transitionEvent = whichTransitionEvent();
 
-
     /*Modal controll for sea-slide*/
     $('.tour').click(function(){
-      $('.sea-modal-window').addClass('open');
       $('body').css('overflow', 'hidden'); 
       var theme = $(this).attr('theme');
       if(theme == "bali"){
+        $('.sea-modal-window-02').addClass('open');
         $('.bali').addClass('active');
       }
       if(theme == "LA"){
+        $('.sea-modal-window-02').addClass('open');
         $('.LA').addClass('active');
-      }                 
+      }
+      if(theme == "hawaii"){
+        $('.sea-modal-window-01').addClass('open');
+        $('.hawaii').addClass('active');
+      }
+      if(theme == "PL"){
+        $('.sea-modal-window-01').addClass('open');
+        $('.point-lobos').addClass('active');
+      }                          
     });
 
     /*Modal controll for hicing*/
@@ -75,7 +86,7 @@ $(document).ready(function() {
     $('.close-sea').click(function(){
       $('.sea-modal-window').removeClass('open');
       $('body').css('overflow', 'auto');
-      //$('.theme').removeClass('active');
+      $('.theme').removeClass('active');
     });
 
     /*Close hicing*/
@@ -85,6 +96,7 @@ $(document).ready(function() {
       $('.theme').removeClass('active');
     });
 
+    // machineMove
     function blockDown(element){
       if(!element.hasClass("first-down")){
         element.removeClass('first-up');
@@ -129,6 +141,67 @@ $(document).ready(function() {
         });                
       }      
     }    
+
+    function toJungle(){
+      var element = $("#second");
+      blockDown(element);      
+    } 
+
+    function toSea(){
+      toJungle();
+      element = $("#third");
+      setTimeout(function() { 
+        blockDown(element); 
+      }, 1800);       
+    }
+
+    function toMount(){
+      toSea();
+      setTimeout(function() { 
+        blockLeft($('.sea-02'), "sea-");
+      }, 3000); 
+      
+      setTimeout(function() { 
+        blockDown($('#fourth'), "sea-");
+      }, 4000);       
+    }
+
+    function toLive(){
+      toMount();
+      setTimeout(function() { 
+        blockLeft($('.egypt'));
+        $('.egypt-name').removeClass('return-name');
+        $('.egypt-name').addClass('name-slide'); 
+      }, 5100); 
+      
+      setTimeout(function() { 
+        blockLeft($('.new-zeland'));
+        $('.new-zeland-name').addClass('zeland-name-slide');
+        $('.new-zeland-name').removeClass('return-name'); 
+      }, 6200);
+
+      setTimeout(function() { 
+        element = $("#fifth");
+        blockDown(element);
+        // window.scrollby(50,0);
+      }, 7300);    
+    }
+
+    $('#jungle').click(function(){
+      toJungle();
+    });
+
+    $('#sea').click(function(){
+      toSea();   
+    });
+
+    $('#mountains').click(function(){
+      toMount();
+    });
+
+    $('#liveit').click(function(){
+      toLive();
+    });
 
     $(window).scroll(function() {
         var scrolled = Math.round($(window).scrollTop()); 

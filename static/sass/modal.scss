@@ -24,7 +24,7 @@ $zealand-buy: #477142;
   right: 50px;
   background-size: cover;
   cursor: pointer;
-  z-index: 500;
+  z-index: 830;
   &:hover{
     transform: scale(1.1,1.1);
   }
@@ -56,10 +56,7 @@ $zealand-buy: #477142;
   height: 100% !important;
   width: 100%;  
 }
-.bali{
-  .cover{
-    background-image: url('images/bali-01.jpg');
-  }          
+.bali , .LA, .hawaii, .point-lobos{    
   .content-container{
     .title{
       color: $sea;
@@ -77,6 +74,27 @@ $zealand-buy: #477142;
       color: $sea-buy;
     }      
   }
+}
+.bali{
+  .cover{
+    background-image: url('images/bali-01.jpg');
+  }        
+}
+.LA{
+  .cover{
+    background-image: url('images/LA.jpg');
+  }  
+}
+.hawaii{
+  .cover{
+    background-image: url('images/hawaii.jpg');
+  }  
+}
+
+.point-lobos{
+  .cover{
+    background-image: url('images/PointLobos.jpg');
+  }    
 }
 .red-theme{
   .slick-slider, .slick-list, .slick-track {
@@ -196,14 +214,13 @@ $zealand-buy: #477142;
   }      
 }
 
-.yellow-theme, .green-theme, .red-theme, .bali, .LA{
+.yellow-theme, .green-theme, .red-theme, .bali, .LA, .hawaii, .point-lobos{
   .desc-block{
     position: relative;
     height: 100% !important;
     min-width: 30%;
     width: 30%;
     max-width: 30%;
-    z-index: 410;
     background-color: white;
     .content-container{
       height: auto;
@@ -269,6 +286,6 @@ $zealand-buy: #477142;
     background-size: cover;
     background-position: center;
     top: 0px;  
-    z-index: 410;     
+    z-index: 810;     
   }
 }
