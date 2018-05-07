@@ -9,7 +9,7 @@ $(document).ready(function() {
 
 
     $('.main-link').click(function(){
-
+      clearPage();
     });
 
     function clearPage(){
@@ -73,6 +73,7 @@ $(document).ready(function() {
       var theme = $(this).attr('theme');
       if(theme == "red"){
         $('.red-theme').addClass('active');
+        slick();
       }
       if(theme == "yellow"){
         $('.yellow-theme').addClass('active');
@@ -91,6 +92,7 @@ $(document).ready(function() {
 
     /*Close hicing*/
     $('.close-hic').click(function(){
+      $('.red-slider').slick('unslick'); 
       $('.hic-modal-window').removeClass('open');
       $('body').css('overflow', 'auto');
       $('.theme').removeClass('active');
@@ -284,15 +286,19 @@ $(document).ready(function() {
 
     });
 
-    $(".red-slider").slick({
-      infinite: true,
-      speed: 500,
-      dots: true,
-      arrows: false,
-      centerMode: true,
-      centerPadding: '0px',
-      slidesToShow: 1,
-      autoplay: true,
-      autoplaySpeed: 3500,          
-    });
+    function slick(){
+      $(".red-slider").slick({
+        infinite: true,
+        speed: 500,
+        dots: true,
+        arrows: false,
+        centerMode: true,
+        centerPadding: '0px',
+        slidesToShow: 1,
+        autoplay: true,
+        autoplaySpeed: 1000,  
+        initialSlide: 1,
+      });
+    }
+
 });
