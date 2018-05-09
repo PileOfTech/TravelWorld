@@ -14,7 +14,7 @@ $(document).ready(function() {
 
     function clearPage(){
       var els = [$(".screen"), $('.sea-02'), $('#fourth'),
-        $('.egypt'), $('.new-zeland')];       
+        $('.egypt'), $('.new-zeland'), $('.fifth')];       
         for(ind in els){
           el = els[ind];
           //console.log(el);
@@ -86,7 +86,7 @@ $(document).ready(function() {
     /*Close sea*/
     $('.close-sea').click(function(){
       $('.sea-modal-window').removeClass('open');
-      $('body').css('overflow', 'auto');
+      $('body').css('overflow', 'scroll');
       $('.theme').removeClass('active');
     });
 
@@ -94,7 +94,7 @@ $(document).ready(function() {
     $('.close-hic').click(function(){
       $('.red-slider').slick('unslick'); 
       $('.hic-modal-window').removeClass('open');
-      $('body').css('overflow', 'auto');
+      $('body').css('overflow', 'scroll');
       $('.theme').removeClass('active');
     });
 
@@ -105,7 +105,7 @@ $(document).ready(function() {
         element.addClass('first-down');    
         $('body').css('overflow-y', 'hidden');
         element.one(transitionEvent, function(event) {
-          $('body').css('overflow-y', 'auto');
+          $('body').css('overflow-y', 'scroll');
         });
         element.css('position', 'fixed');
       }      
@@ -117,7 +117,7 @@ $(document).ready(function() {
         element.addClass('first-up');    
         $('body').css('overflow-y', 'hidden');
         element.one(transitionEvent, function(event) {
-          $('body').css('overflow-y', 'auto');
+          $('body').css('overflow-y', 'scroll');
         });
         element.css('position', 'fixed');
       }   
@@ -129,7 +129,7 @@ $(document).ready(function() {
         element.addClass(prefix+'slide');
         $('body').css('overflow-y', 'hidden');
         element.one(transitionEvent, function(event) {
-          $('body').css('overflow-y', 'auto');
+          $('body').css('overflow-y', 'scroll');
         });                
       }      
     }
@@ -139,7 +139,7 @@ $(document).ready(function() {
         element.addClass(prefix+'return');
         $('body').css('overflow-y', 'hidden');
         element.one(transitionEvent, function(event) {
-          $('body').css('overflow-y', 'auto');
+          $('body').css('overflow-y', 'scroll');
         });                
       }      
     }    
@@ -147,13 +147,15 @@ $(document).ready(function() {
     function toJungle(){
       var element = $("#second");
       blockDown(element);      
+      window.scrollTo(300, 0);
     } 
 
     function toSea(){
       toJungle();
       element = $("#third");
       setTimeout(function() { 
-        blockDown(element); 
+        blockDown(element);
+        window.scrollTo(600, 0);
       }, 1800);       
     }
 
@@ -161,10 +163,12 @@ $(document).ready(function() {
       toSea();
       setTimeout(function() { 
         blockLeft($('.sea-02'), "sea-");
+
       }, 3000); 
       
       setTimeout(function() { 
         blockDown($('#fourth'), "sea-");
+        window.scrollTo(1200, 0);
       }, 4000);       
     }
 
@@ -185,6 +189,7 @@ $(document).ready(function() {
       setTimeout(function() { 
         element = $("#fifth");
         blockDown(element);
+        window.scrollTo(600, 0);
         // window.scrollby(50,0);
       }, 7300);    
     }
@@ -250,6 +255,7 @@ $(document).ready(function() {
           blockUp($('#fourth'), "sea-");
         }
 
+        //EGYPT
         if(scrolled > lastScroll && scrolled > 2400 && scrolled < 2700){
           blockLeft($('.egypt'));
           $('.egypt-name').removeClass('return-name');
@@ -261,6 +267,7 @@ $(document).ready(function() {
           $('.egypt-name').addClass('return-name');
         }        
 
+        //NEW ZEALAND
         if(scrolled > lastScroll && scrolled > 3000 && scrolled < 3300){
           blockLeft($('.new-zeland'));
           $('.new-zeland-name').addClass('zeland-name-slide');
@@ -270,7 +277,48 @@ $(document).ready(function() {
           blockRight($('.new-zeland'));
           $('.new-zeland-name').removeClass('zeland-name-slide');
           $('.new-zeland-name').addClass('return-name');          
-        }      
+        }  
+        
+        //Last screen
+        if(scrolled > lastScroll && scrolled > 3300 && scrolled < 3700){
+          blockDown($('#fifth'));
+        }
+        if(scrolled < lastScroll && scrolled > 3300 && scrolled < 3700){
+          blockUp($('#fifth'));
+          console.log('yes');
+        }   
+
+        //mountains
+        if(scrolled > lastScroll && scrolled > 3900 && scrolled < 4300){
+          blockLeft($('.mountains'));       
+        }              
+        if(scrolled < lastScroll && scrolled > 3900 && scrolled < 4300){
+          blockRight($('.mountains'));       
+        }  
+
+        // fields
+        if(scrolled > lastScroll && scrolled > 4300 && scrolled < 4700){
+          blockLeft($('.fields'));       
+        }              
+        if(scrolled < lastScroll && scrolled > 4300 && scrolled < 4700){
+          blockRight($('.fields'));       
+        }  
+
+        //ocean
+        if(scrolled > lastScroll && scrolled > 4700 && scrolled < 5400){
+          blockLeft($('.ocean'));       
+        }              
+        if(scrolled < lastScroll && scrolled > 4700 && scrolled < 5400){
+          blockRight($('.ocean'));       
+        }  
+
+        //beach
+        if(scrolled > lastScroll && scrolled > 5400 && scrolled < 6100){
+          blockLeft($('.beach'));       
+        }              
+        if(scrolled < lastScroll && scrolled > 5400 && scrolled < 6100){
+          blockRight($('.beach'));       
+        }  
 
         /*THIRD SLIDE*/
         // if(scrolled > lastScroll && scrolled > 400){
