@@ -3,13 +3,16 @@ $(document).ready(function() {
     //console.log($(window).scrollTop());
 
     height = $(window).height();
-    $('.screen').css('height', height + 'px')
-
-    var lastScroll = 0;
-
+    $('.screen').css('height', '100%');
 
     $('.main-link').click(function(){
       clearPage();
+    });
+
+
+    $('.globus').click(function(){
+      $('.big-logo').toggleClass('top-logo');
+      $('.line').toggleClass('top-line');
     });
 
     function clearPage(){

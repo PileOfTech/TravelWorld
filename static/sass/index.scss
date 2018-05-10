@@ -10,7 +10,30 @@ $alaska-buy: #770e10;
 $egypt-buy: #cc9312;
 $zealand-buy: #477142;
 
-body{
+
+$full-desctop: 1400px;
+
+
+@mixin full-desctop {
+  @media (min-width: #{$full-desctop}) {
+    @content;
+  }
+}
+
+@mixin mobile{
+  @media (min-width: 321px) and (max-width: 640px){
+    @content;
+  }
+}
+
+
+// @mixin smobile
+//   @media (max-width: 320px)
+//     @content
+
+
+
+body {
   padding: 0px;
   margin: 0px;
   overflow-x: hidden !important;
@@ -76,9 +99,78 @@ body::-webkit-scrollbar{
     width: 100%;
     height: 100%;
     z-index: 30;
-    background-image: url("images/h-shadow.png")
+    background-image: url("images/h-shadow.png");
+    background-size: cover;
+    @include mobile{
+      background-size: auto;
+      background-position: 40% 20%;    
+    }    
+  } 
+}
+
+#first{
+  background-image: url('images/main.jpg');
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  @include mobile{
+    background-position: 64% 70%;
   }
-  .line{
+  .top-logo{
+    transform: translateY(3%) !important;
+    transition: 0.5s;
+  }
+  .big-logo{
+    transition: 0.5s;
+    position: relative;
+    width: 1100px;
+    height: 400px;
+    margin: 30px auto;
+    transform: translateY(15%);
+    z-index: 30;
+    @include mobile{
+      width: 80%;
+      height: 200px;
+      transform: translateY(75%);
+    }
+    .logo{
+      margin: 0px auto;
+      height: 160px;
+      width: 160px;
+      background-image: url('images/logo.png');
+      background-size: cover;
+      background-repeat: no-repat;
+      @include mobile{
+        height: 130px;
+        width: 130px; 
+      }
+    }    
+    .logo-text{
+      color: white;
+      font-family: 'helvetica';
+      font-size: 110px;
+      text-align: center;
+      @include mobile{
+        font-size: 50px;   
+      }
+    }
+    .small-text{
+      display: none;
+      @include mobile{
+        display: block;
+        font-weight: 600;
+        color: white;
+        font-family: 'helvetica';
+        font-size: 20px;
+        text-align: center;        
+      } 
+    }
+  }
+  .top-line{
+    transition: 0.8s easy;
+    transform: translateY(0px) !important;
+  }
+  .line {
     margin-top: -30px;
     position: absolute;
     height: 230px;
@@ -87,19 +179,56 @@ body::-webkit-scrollbar{
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
+    @include mobile{
+      // display: none;
+      transition: 0.5s;
+      z-index: 40;
+      width: 90%;
+      height: auto;
+      margin: 5%;
+      transform: translateY(300px);
+      flex-direction: column;
+    }
     .im-link{
       height: 100%;
       width: 25%;
       background-size: cover;
       background-position: center;
+      background-image: none !important;
+      border: 1px solid white;
+      @include mobile{
+        width: 100%;
+        height: 50px;
+        margin-top: 10px;
+        border-radius: 70px;
+        .text{
+          opacity: 1;
+          color: white;
+          width: 100%;
+          text-align: center;
+          font-size: 20px;
+          color: white;
+          font-weight: 600;
+          font-family: 'helvetica';
+          padding-top: 0px;
+          z-index: 51;
+          padding-top: 18px;       
+        }
+      }
       &:hover{
         cursor: pointer;
+        @include mobile{
+          background-color: white;
+        }
         .text{
           animation: showText 0.5s;
           animation: topText 1s easy;
           opacity: 1;
           // transform: translateY(0px);
           transform: translate3d(0, 0px, 0);
+          @include mobile{  
+            color: rgba(0, 0, 0, 0.9);
+          }
         }        
         .hover{
           height: 100%;
@@ -107,6 +236,9 @@ body::-webkit-scrollbar{
           margin-left: 0%;
           margin-top: 0px;
           opacity: 1;
+          @include mobile{
+            opacity: 0;
+          }
         }
       }
     }
@@ -178,36 +310,35 @@ body::-webkit-scrollbar{
     .liveit{
       background-image: url("images/sm-back-04.png"); 
     }
-  }  
-}
-
-#first{
-  background-image: url('images/main.jpg');
-  background-size: cover;
-  background-position: center;
-  position: fixed;
-  .big-logo{
-    position: relative;
-    width: 1100px;
-    height: 400px;
-    margin: 30px auto;
-    transform: translateY(15%);
-    z-index: 30;
-    .logo{
-      margin: 0px auto;
-      height: 180px;
-      width: 180px;
-      background-image: url('images/logo.png');
-      background-size: cover;
-      background-repeat: no-repat;
-    }    
-    .logo-text{
-      color: white;
-      font-family: 'helvetica';
-      font-size: 110px;
-      text-align: center;
-    }
+  } 
+  .plate{
+    display: none;
+    z-index: 55;
+    height: 75px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 1.0);
+    bottom: 0px;
+    position: absolute;
+    @include mobile{
+      display: block;
+    } 
   }
+  .globus{
+    z-index: 60;
+    position: absolute;
+    display: none;
+    @include mobile{
+      $glo-size: 50px;
+      display: block;
+      height: $glo-size;
+      width: $glo-size;
+      bottom: 20px;
+      border-radius: 50%;
+      margin-left: calc((100% - #{$glo-size})/2);
+      background-size: cover;
+      background-image: url('images/ui/globus.png');
+    }
+  }  
 }
 
 .biruz{
@@ -243,6 +374,9 @@ body::-webkit-scrollbar{
 #second{
   z-index: 100;
   top: 110%;
+  @include mobile{
+    top: 150%;
+  }
   .side-image{
     z-index: 120;
     position: absolute;
