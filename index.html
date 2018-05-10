@@ -5,8 +5,10 @@
   <link rel="stylesheet" type="text/css" href="static/css/main.min.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
 </head>
 <body>
+  <!-- FIRST -->
   <div class="screen" id="first">
     <div class="shadow"></div>
 
@@ -29,12 +31,12 @@
       </a>
 
       <a id="mountains" class="im-link hicing">
-        <div class="text">Go to the mountains</div>
+        <div class="text">Go to the hicing</div>
         <div class="hover"></div>
       </a>
 
       <a id="liveit" class="im-link liveit">
-        <div class="text">LIVE IT</div>
+        <div class="text">Go to the mountains</div>
         <div class="hover"></div>
       </a>      
     </div>
@@ -42,13 +44,23 @@
     <div class="plate">
       <div class="globus"></div>
     </div>
-    
+
   </div>
 
   <!-- SECOND SECTION -->
   <div class="screen" id="second">
-    <div class="left side-image"></div> 
-    <div class="right side-image"></div>
+    <div class="left side-image" id="left">
+      <div class="j-close"></div>
+      <div class="shadow">
+        <div class="text">Cancun</div>
+      </div>
+    </div> 
+    <div class="right side-image" id="right">
+      <div class="j-close"></div>
+      <div class="shadow">
+        <div class="text">Phang Nga</div>
+      </div>
+    </div>
     <div class="tree-cont">
 
       <div class="tree biruz">
@@ -447,7 +459,63 @@
     </div>
   </div>
 
+  <!-- FIFTH -->
   <div class="screen" id="fifth">
+    <!-- Модалки -->
+    <div class="ski-modal-window modal-window">
+
+      <div class="theme blue-theme">
+        <div class="close-ski"></div>
+
+        <div class="desc-block">
+          <div class="content-container">          
+            <div class="title ski-title"></div>
+            
+            <div class="text ski-text">
+              &emsp;&emsp;
+            </div>
+            
+            <div class="star-line">
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+            </div>
+          
+            <div class="button-buy">
+              <div class="butt-text">
+                Buy this tour now
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="cover ski-cover"></div>
+      </div>  
+
+    </div>
+
+    <div class="girl"></div>
+    <div class="right">
+      <div class="description">
+        <div class="title">Skiing</div>
+        <div class="text">Explore the most popular trails in Oregon with hand-curated trail maps and driving directions as well as detailed reviews and photos from hikers, campers and nature lovers like you.</div>  
+
+        <div class="button but-01 ski-but" theme="but-01">Kirchdorf</div>
+        <div class="button but-02 ski-but" theme="but-02">Queenstown</div> 
+        <div class="button but-03 ski-but" theme="but-03">Japanese</div>    
+      </div>   
+
+    </div>
+
+    <div class="mount mount-01"></div>
+    <div class="mount mount-02"></div>
+    <div class="mount mount-03"></div>
+  </div>
+
+  <div class="screen" id="six">
     <div class="paper"></div>
 
     <div class="gothere jungle">
@@ -467,10 +535,12 @@
     </div>
   </div>
 
-  <div class="screen" id="six"></div>
+
+  <div class="screen" id="seven"></div>
 
   <script type="text/javascript" src="static/javascripts/jquery.min.js"></script>
   <script type="text/javascript" src="static/javascripts/slick.min.js"></script>  
   <script type="text/javascript" src="static/javascripts/parallax.js"></script>
+  <script type="text/javascript" src="static/javascripts/modal.js"></script>  
 </body>
 </html>

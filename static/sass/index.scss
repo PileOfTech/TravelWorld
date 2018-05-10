@@ -14,6 +14,12 @@ $zealand-buy: #477142;
 $full-desctop: 1400px;
 
 
+@mixin desctop {
+  @media (min-width: 1200px}) {
+    @content;
+  }
+}
+
 @mixin full-desctop {
   @media (min-width: #{$full-desctop}) {
     @content;
@@ -21,7 +27,7 @@ $full-desctop: 1400px;
 }
 
 @mixin mobile{
-  @media (min-width: 321px) and (max-width: 640px){
+  @media (min-width: 321px) and (max-width: 1024px){
     @content;
   }
 }
@@ -94,6 +100,9 @@ body::-webkit-scrollbar{
 .screen{
   position: absolute;
   width: 100%;
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
   .shadow{
     position: absolute;
     width: 100%;
@@ -106,6 +115,27 @@ body::-webkit-scrollbar{
       background-position: 40% 20%;    
     }    
   } 
+}
+
+
+.button{
+  height: 27px;
+  width: 200px;
+  color: white;
+  font-family: 'helvetica';
+  font-size: 23px;
+  text-align: center;
+  position: relative;
+  border: 1px solid white;
+  border-radius: 75px;
+  padding-top: 7px;
+  cursor: pointer;
+  transition: 0.5s;
+  &:hover{
+    transition: 0.5s;
+    background-color: white;
+    color: rgba(0, 0, 0, 0.9);
+  }
 }
 
 #first{
@@ -194,9 +224,9 @@ body::-webkit-scrollbar{
       width: 25%;
       background-size: cover;
       background-position: center;
-      background-image: none !important;
-      border: 1px solid white;
       @include mobile{
+        border: 1px solid white;
+        background-image: none !important;
         width: 100%;
         height: 50px;
         margin-top: 10px;
@@ -353,6 +383,11 @@ body::-webkit-scrollbar{
     background-position: center;
     margin: 0 auto;
     top: 17%;
+    @include mobile{
+      width: 30%;
+      height: 30%;
+      top: 35%;
+    }
   }
   .text{
     position: absolute;
@@ -367,6 +402,13 @@ body::-webkit-scrollbar{
     font-family: 'helvetica';
     width: 34%;
     text-align: center;
+    @include mobile{
+      width: 54%;
+      height: 30%;
+      font-size: 40px;
+      margin-left: 24%;
+      margin-top: 68%;
+    }
   }
 }
 
@@ -377,6 +419,21 @@ body::-webkit-scrollbar{
   @include mobile{
     top: 150%;
   }
+  .full-side{
+    @include mobile{
+      height: 100% !important;
+      z-index: 140 !important;
+      transition: 0.5s;
+      width: 100% !important;
+      background-position: 90% 50% !important;
+      .shadow{
+        background-position: 0% 0% !important;
+        .text{
+          opacity: 0 !important;
+        }
+      }
+    }
+  }
   .side-image{
     z-index: 120;
     position: absolute;
@@ -384,33 +441,102 @@ body::-webkit-scrollbar{
     width: 33%;
     background-color: grey;  
     cursor: pointer;
-    transition: 1s;  
-    &:hover{
-      width: 68%;
+    transition: 1s;
+    @include mobile{
+      transition: 0.5s;
+      width: 100%;
+      height: 33%;
+      background-size: cover;
       background-position: center;
+    }
+    &:hover{
+      @include desctop{
+        width: 68%;
+        background-position: center;
+      }
+
+    }
+    .j-active{
+      @include mobile{
+        display: block !important;
+        opacity: 1 !important;
+      }
+    }
+    .j-close{
+      display: none;
+      z-index: 200;
+      @include mobile{
+        display: none;
+        background-image: url('images/ui/w-close.svg');
+        background-size: cover;
+        z-index: 170;
+        height: 35px;
+        width: 35px;
+        right: 10px;
+        top: 10px;
+        position: absolute;
+      }
+    }
+    .shadow{
+      display: none;
+      @include mobile{
+        display: block;
+        height: 100%;
+        width: 100%;
+        background-image: url('images/h-shadow.png');
+        background-position: 0% 30%;
+        background-size: auto;
+      }
+      .text{
+        color: white;
+        font-family: 'helvetica';
+        text-align: center;
+        font-size: 25px;
+        padding-top: 28%;
+        opacity: 1;
+      }
     }
   }
   .left{
     left: 0px;
     background-image: url('images/left.jpg');
     background-position: right;
+    @include mobile{
+      top: 0px;
+    }
+    .shadow{
+      transform: rotate(180deg);
+      .text{
+        transform: rotate(180deg);
+        padding-bottom: 24%;
+      }
+    }
   }
   .right{
     right: 0px;
     background-image: url('images/right.jpg');
     background-position: left;
+    @include mobile{
+      bottom: 0px;
+      background-position: bottom;
+
+    }
   }
   .tree-cont{
     position: absolute;
     height: 100%;
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-around;    
     .tree{
       height: 100%;
       width: 34%;
       background-size: cover;
       background-color: grey;
+      @include mobile{
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 }
@@ -560,7 +686,7 @@ body::-webkit-scrollbar{
   width: 100%;
   top: 0;
   position: absolute;
-  z-index: 800;
+  z-index: 1900;
   background-color: white;
   display: none;
 }
@@ -733,9 +859,82 @@ body::-webkit-scrollbar{
 #fifth{
   top: 750%;
   z-index: 950;
+  .girl{
+    z-index: 1300;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url('images/girl.png');
+    background-size: cover;
+    background-position: center; 
+  }
+  .right{
+    height: 100%;
+    width: 100%;
+    position: absolute;    
+    z-index: 1350;
+    background-size: cover;
+    background-image: url('images/shadow.png');
+    background-position: left;
+    .description{
+      position: relative;
+      height: 40%;
+      width: 300px;
+      top: 30%;
+      left: 75px;
+      color: white;
+      .title{
+        font-size: 55px;
+        font-family: 'arial-black';      
+      }
+      .text{
+        padding-top: 15px;
+        font-size: 15px;
+        line-height: 1.5;
+        font-family: 'Arial';
+      }
+      .button{
+        z-index: 1400;
+        margin-top: 30px;
+      }
+      .but-01, .but-02, .but-03{
+        display: none;
+      }
+      .but-active{
+        display: block !important;
+      }
+    }    
+  }
+  .mount{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+  }
+  .mount-01{
+    transform: translateX(0%);   
+    z-index: 800;
+    background-image: url('images/mount-01.png');    
+  }
+  .mount-02{
+    transform: translateX(100%);   
+    z-index: 900;
+    background-image: url('images/mount-02.png');    
+  } 
+  .mount-03{
+    transform: translateX(100%);   
+    z-index: 1000;
+    background-image: url('images/mount-03.png');    
+  }    
+}
+#six{
+  top: 1100%;
+  z-index: 1350;
   display: inline-block;
   .paper{
-    z-index: 1200;
+    z-index: 1800;
     position: absolute;
     height: 100%;
     width: 100%;
@@ -767,28 +966,28 @@ body::-webkit-scrollbar{
 
   .jungle{
     transform: translateX(0%);   
-    z-index: 800;
+    z-index: 1450;
     background-image: url('images/jungle.png');
   }
 
   .mountains{
-    z-index: 900;
+    z-index: 1550;
     transform: translateX(100%);  
     background-image: url('images/mountains.png');
   }
 
   .fields{
-    z-index: 900;
+    z-index: 1600;
     transform: translateX(100%);  
     background-image: url('images/fields.png');
   }
   .ocean{
-    z-index: 900;
+    z-index: 1650;
     transform: translateX(100%);  
     background-image: url('images/ocean.png');
   }
   .beach{
-    z-index: 900;
+    z-index: 1700;
     transform: translateX(100%);  
     background-image: url('images/beach.png');    
   }
@@ -818,15 +1017,9 @@ body::-webkit-scrollbar{
   top: 150%;
 }
 
-#six{
-  top: 1050%;
+#seven{
+  top: 1400%;
   z-index: 1350;
   width: 100%;
   height: 200px;
-}
-
-.last{
-  position: absolute;
-  transition: 2s;
-  top: 90% !important;
 }

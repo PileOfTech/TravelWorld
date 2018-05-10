@@ -13,10 +13,10 @@ $alaska-buy: #770e10;
 $egypt-buy: #cc9312;
 $zealand-buy: #477142;  
 
-.close-sea{
+.close-sea, .close-ski{
   background-image: url('images/ui/close-sea.svg');
 }  
-.close-hic, .close-sea{
+.close-hic, .close-sea, .close-ski{
   position: absolute;
   height: 50px;
   width: 50px;
@@ -57,7 +57,7 @@ $zealand-buy: #477142;
   height: 100% !important;
   width: 100%;  
 }
-.bali , .LA, .hawaii, .point-lobos{    
+.bali , .LA, .hawaii, .point-lobos, .blue-theme{    
   .content-container{
     .title{
       color: $sea;
@@ -219,7 +219,7 @@ $zealand-buy: #477142;
   }      
 }
 
-.yellow-theme, .green-theme, .red-theme, .bali, .LA, .hawaii, .point-lobos{
+.yellow-theme, .green-theme, .red-theme, .blue-theme, .bali, .LA, .hawaii, .point-lobos{
   .desc-block{
     position: relative;
     height: 100% !important;
@@ -293,4 +293,7 @@ $zealand-buy: #477142;
     top: 0px;  
     z-index: 810;     
   }
+  // .ski-cover{
+  //   background-image: url('images/cov-01.jpg');
+  // }
 }
