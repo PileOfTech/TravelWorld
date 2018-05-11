@@ -1,3 +1,9 @@
+var width = $(window).width();
+var is_mobile = false;
+if(width < 768){
+  is_mobile = true;
+}
+
 $('.globus').click(function(){
   $('.big-logo').toggleClass('top-logo');
   $('.line').toggleClass('top-line');
@@ -105,17 +111,21 @@ $('.close-hic').click(function(){
   $('.theme').removeClass('active');
 });
 
+$('.side-image').click(function(){
+  $(this).addClass('full-side');
+  $(this).children("div.j-close").addClass('j-active');
+  $(this).children("div.shadow").children('.button').addClass('show-but');
+});
+
+
 $('.j-close').click(function(){
-  $('j-close').removeClass('j-active');
     setTimeout(function() {
+      $('.j-close').removeClass('j-active');
+      $('.full-side').children("div.shadow").children('.button').removeClass('show-but');
       $('.side-image').removeClass("full-side");
     }, 100);  
 });
 
-$('.side-image').click(function(){
-  $(this).toggleClass('full-side');
-  $(this).children("div.j-close").toggleClass('j-active');
-});
 
 
 

@@ -2,7 +2,12 @@ $(document).ready(function() {
     clearPage();
     //console.log($(window).scrollTop());
 
-    height = $(window).height();
+    var height = $(window).height();
+    var width = $(window).width();
+    var is_mobile = false;
+    if(width < 768){
+      is_mobile = true;
+    }
     // $('.screen').css('height', '100%');
 
     $('.main-link').click(function(){
@@ -89,6 +94,10 @@ $(document).ready(function() {
     }    
 
     function toJungle(){
+      if(is_mobile){
+        $('.big-logo').removeClass('top-logo');
+        $('.line').toggleClass('top-line');
+      }
       var element = $("#second");
       blockDown(element);      
       window.scrollTo(300, 0);

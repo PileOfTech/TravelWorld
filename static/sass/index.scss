@@ -12,10 +12,10 @@ $zealand-buy: #477142;
 
 
 $full-desctop: 1400px;
-
+$desctop: 1200px;
 
 @mixin desctop {
-  @media (min-width: 1200px}) {
+  @media (min-width: #{$desctop}) {
     @content;
   }
 }
@@ -431,6 +431,9 @@ body::-webkit-scrollbar{
         .text{
           opacity: 0 !important;
         }
+        .button{
+          z-index: 160 !important;
+        }
       }
     }
   }
@@ -479,6 +482,16 @@ body::-webkit-scrollbar{
     }
     .shadow{
       display: none;
+      .show-but{
+        display: block !important;
+      }
+      .cancun-but{
+        display: none;
+        transform: rotate(180deg) !important;
+      }
+      .nga-button{
+        display: none;
+      }      
       @include mobile{
         display: block;
         height: 100%;
