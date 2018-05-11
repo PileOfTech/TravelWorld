@@ -313,6 +313,18 @@ $(document).ready(function() {
 
     });
 
+    /*Close hicing*/
+    $('.close-hic').click(function(){
+      try{
+        $('.red-slider').slick('unslick'); 
+      }catch{
+        
+      }
+      $('.hic-modal-window').removeClass('open');
+      $('body').css('overflow', 'scroll');
+      $('.theme').removeClass('active');
+    });
+
     function slick(){
       $(".red-slider").slick({
         infinite: true,

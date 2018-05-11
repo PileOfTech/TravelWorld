@@ -103,13 +103,6 @@ $('.close-sea').click(function(){
   $('.theme').removeClass('active');
 });
 
-/*Close hicing*/
-$('.close-hic').click(function(){
-  $('.red-slider').slick('unslick'); 
-  $('.hic-modal-window').removeClass('open');
-  $('body').css('overflow', 'scroll');
-  $('.theme').removeClass('active');
-});
 
 $('.side-image').click(function(){
   $(this).addClass('full-side');
@@ -119,11 +112,21 @@ $('.side-image').click(function(){
 
 
 $('.j-close').click(function(){
-    setTimeout(function() {
-      $('.j-close').removeClass('j-active');
-      $('.full-side').children("div.shadow").children('.button').removeClass('show-but');
-      $('.side-image').removeClass("full-side");
-    }, 100);  
+  setTimeout(function() {
+    $('.j-close').removeClass('j-active');
+    $('.full-side').children("div.shadow").children('.button').removeClass('show-but');
+    $('.side-image').removeClass("full-side");
+    $('.button').removeClass('bottom-but');
+    $('.content').removeClass('act-content');
+    $('.desc').removeClass('act-desc');
+  }, 100);  
+});
+
+$('.button').click(function(){
+  $(this).toggleClass('bottom-but');
+  $(this).parent().toggleClass('slide-shadow');
+  $(this).parent().children('.content').toggleClass('act-content');
+  $(this).parent().children('.content').children('.desc').toggleClass('act-desc');
 });
 
 

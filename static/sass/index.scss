@@ -27,22 +27,16 @@ $desctop: 1200px;
 }
 
 @mixin mobile{
-  @media (min-width: 321px) and (max-width: 1024px){
+  @media (min-width: 321px) and (max-width: 628px){
     @content;
   }
 }
-
-
-// @mixin smobile
-//   @media (max-width: 320px)
-//     @content
-
-
 
 body {
   padding: 0px;
   margin: 0px;
   overflow-x: hidden !important;
+  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
 }
 
 @font-face{
@@ -116,7 +110,6 @@ body::-webkit-scrollbar{
     }    
   } 
 }
-
 
 .button{
   height: 27px;
@@ -426,8 +419,11 @@ body::-webkit-scrollbar{
       transition: 0.5s;
       width: 100% !important;
       background-position: 90% 50% !important;
+      .slide-shadow{
+        background-position: 0% 70% !important;
+      }
       .shadow{
-        background-position: 0% 0% !important;
+        background-position: 0% 0%;
         .text{
           opacity: 0 !important;
         }
@@ -482,15 +478,69 @@ body::-webkit-scrollbar{
     }
     .shadow{
       display: none;
-      .show-but{
+      .act-content{
         display: block !important;
+        .desc{
+          animation: toLeft 0.8s;
+          animation-duration: 1s;
+          transform: translateX(0%)!important;
+        }
+        @keyframes toLeft{
+          0%{
+            transform: translateX(150%);
+          }
+          100%{
+            transform: translateX(0%);
+          }
+        }
+      }
+      .content{
+        right: calc((100% - 250px)/2);
+        position: absolute;
+        display: none;
+        width: 250px;
+        height: auto;
+        margin-top: -50px;
+        .desc{
+          transform: translateX(150%);
+          line-height: 1.5em;
+          color: white;
+          font-size: 18px;
+          font-family: 'helvetica';
+        }
+      }
+      .show-but{
+        animation: showBUT 0.5s;
+        animation-duration: 0.5s;
+        display: block !important;
+        opacity: 1 !important;
+      }
+      @keyframes showBUT{
+        0%{
+          display: none;
+          opacity: 0;
+        }
+        90%{
+          display: none;
+          opacity: 0;
+        }
+        91%{
+          opacity: 1;
+          display: block;
+        }
+      }
+      .button{
+        display: none;
+        opacity: 0;
+        margin: 0px auto;
+        transition: 0.8s;
       }
       .cancun-but{
-        display: none;
         transform: rotate(180deg) !important;
+        margin-top: 25%;
       }
-      .nga-button{
-        display: none;
+      .nga-but{
+        margin-top: 45%;
       }      
       @include mobile{
         display: block;
@@ -519,9 +569,16 @@ body::-webkit-scrollbar{
     }
     .shadow{
       transform: rotate(180deg);
+      .content{
+        transform: rotate(180deg);
+      }
       .text{
         transform: rotate(180deg);
         padding-bottom: 24%;
+      }
+      .bottom-but{
+        transition: 0.8s;
+        margin-top: -50% !important;
       }
     }
   }
@@ -529,6 +586,17 @@ body::-webkit-scrollbar{
     right: 0px;
     background-image: url('images/right.jpg');
     background-position: left;
+    .shadow{
+      .bottom-but{
+        transition: 0.8s;
+        margin-top: 125% !important;
+      }      
+      .content{
+        .desc{
+          margin-top: 75px;
+        }
+      }
+    }
     @include mobile{
       bottom: 0px;
       background-position: bottom;
@@ -610,6 +678,11 @@ body::-webkit-scrollbar{
     right: 30px;
     display: flex;
     flex-wrap: nowrap;
+    @include mobile{
+      right: 5px;
+      width: auto;
+      height: 40px;
+    }
     .text{
       width: 210px;
       height: 60px;
@@ -617,12 +690,25 @@ body::-webkit-scrollbar{
       color: white;
       font-size: 40px;
       padding-top: 10px;
+      @include mobile{
+        height: 40px;
+        width: auto;
+        font-size: 30px;
+        padding-top: 6px;
+        font-weight: 600;
+      }
     }
+    
     .logo{
       height: 60px;
       width: 60px;
       background-image: url('images/logo.png');
       background-size: cover;
+      @include mobile{
+        margin-left: 10px;
+        height: 40px;
+        width: 40px;
+      }
     }
   }
   .info-cont{
