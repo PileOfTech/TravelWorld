@@ -9,27 +9,30 @@ $('.globus').click(function(){
   $('.line').toggleClass('top-line');
 });
 
+$('.modal-globus').click(function(){
+  $(this).toggleClass('bottom-globus');
+  $(this).parent().children('.desc-block').toggleClass('act-desc');
+});
 
 /*Modal controll for sea-slide*/
+// Каждую трутью строчку вынести в одну
 $('.tour').click(function(){
   $('body').css('overflow', 'hidden'); 
   var theme = $(this).attr('theme');
+  if(theme == "hawaii"){
+    $('.sea-modal-window-01').addClass('open');  
+  }
+  if(theme == "point-lobos"){
+    $('.sea-modal-window-01').addClass('open');
+  }                          
   if(theme == "bali"){
     $('.sea-modal-window-02').addClass('open');
-    $('.bali').addClass('active');
   }
   if(theme == "LA"){
     $('.sea-modal-window-02').addClass('open');
-    $('.LA').addClass('active');
   }
-  if(theme == "hawaii"){
-    $('.sea-modal-window-01').addClass('open');
-    $('.hawaii').addClass('active');
-  }
-  if(theme == "PL"){
-    $('.sea-modal-window-01').addClass('open');
-    $('.point-lobos').addClass('active');
-  }                          
+  $('.'+theme+'').addClass('active');
+  $('.'+theme+'').children('.modal-globus').addClass('act-globus');  
 });
 
 /*Modal controll for hicing*/
@@ -101,6 +104,10 @@ $('.close-sea').click(function(){
   $('.sea-modal-window').removeClass('open');
   $('body').css('overflow', 'scroll');
   $('.theme').removeClass('active');
+  $('.modal-globus').removeClass('act-globus');
+  $('.modal-globus').removeClass('bottom-globus');
+  $('.desc-block').removeClass('act-desc');
+  $('.desc-block').removeClass('right-desc');
 });
 
 

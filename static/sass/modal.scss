@@ -13,6 +13,58 @@ $alaska-buy: #770e10;
 $egypt-buy: #cc9312;
 $zealand-buy: #477142;  
 
+$glo-size: 60px;
+
+$full-desctop: 1400px;
+$desctop: 1200px;
+
+@mixin desctop {
+  @media (min-width: #{$desctop}) {
+    @content;
+  }
+}
+
+@mixin full-desctop {
+  @media (min-width: #{$full-desctop}) {
+    @content;
+  }
+}
+
+@mixin mobile{
+  @media (min-width: 321px) and (max-width: 628px){
+    @content;
+  }
+}
+
+.bottom-globus{
+  top: calc(100% - 80px) !important;
+  transition: 1s;
+}
+
+.act-globus{
+  z-index: 1800 !important;
+  @include mobile{
+    display: block !important;
+  }
+}
+.modal-globus{
+  z-index: 800;
+  position: absolute;
+  display: none;
+  @include mobile{
+    display: none;
+    transition: 0.5s;
+    display: block;
+    height: $glo-size;
+    width: $glo-size;
+    top: calc((100% - #{$glo-size})/2);
+    border-radius: 50%;
+    margin-left: calc((100% - #{$glo-size})/2);
+    background-size: cover;
+    background-image: url('images/ui/globus.png');
+  }    
+}
+
 .close-sea, .close-ski{
   background-image: url('images/ui/close-sea.svg');
 }  
@@ -25,8 +77,22 @@ $zealand-buy: #477142;
   background-size: cover;
   cursor: pointer;
   z-index: 830;
-  &:hover{
-    transform: scale(1.1,1.1);
+  @include mobile{
+    height: 30px;
+    width: 30px;
+    top: 10px;
+    right: 10px;
+    z-index: 1900;
+  }
+  @include desctop{
+    &:hover{
+      transform: scale(1.1,1.1);
+    }
+  }
+  @include full-desctop{
+    &:hover{
+      transform: scale(1.1,1.1);
+    }
   }
 }  
 .theme{
@@ -35,6 +101,19 @@ $zealand-buy: #477142;
   position: absolute;
   display: flex;
   flex-direction: row;
+  .shadow{
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3));
+
+    z-index: 1800;
+    @include mobile{
+      z-index: 1100;
+      display: block;
+    }
+  }
 }
 .bali{
   display: none;
@@ -56,7 +135,9 @@ $zealand-buy: #477142;
   display: flex !important;
   height: 100% !important;
   width: 100%;  
+  z-index: 1800 !important;
 }
+
 .bali , .LA, .hawaii, .point-lobos, .blue-theme{    
   .content-container{
     .title{
@@ -219,7 +300,39 @@ $zealand-buy: #477142;
   }      
 }
 
-.yellow-theme, .green-theme, .red-theme, .blue-theme, .bali, .LA, .hawaii, .point-lobos{
+.theme, .yellow-theme, .green-theme, .red-theme, .blue-theme, .bali, .LA, .hawaii, .point-lobos{
+  .act-desc{
+    opacity: 1 !important;
+  }
+  .right-desc{
+    @include mobile{
+      animation: rightDesc 0.5s !important;
+      // animation-delay: 0.5s;
+    }
+  }
+  @keyframes rightDesc{
+    0%{
+      transform: translateX(0%); 
+    }
+    100%{
+      transform: translateX(100%); 
+    }
+  }    
+  .act-desc{
+    @include mobile{
+      display: 1 !important;
+      transform: translateX(0%) !important;
+      animation: slideDesc 1s;  
+    }    
+    @keyframes slideDesc{
+      0%{
+        transform: translateX(100%);
+      }
+      100%{
+        transform: translateX(0%);
+      }
+    }
+  }
   .desc-block{
     position: relative;
     height: 100% !important;
@@ -227,6 +340,19 @@ $zealand-buy: #477142;
     width: 30%;
     max-width: 30%;
     background-color: white;
+    display: block;
+    @include mobile{
+      opacity: 0;
+      position: absolute;
+      background-color: rgba(0,0,0,0);
+      min-width: 100%;
+      width: 100%;
+      max-width: 100%;
+      height: calc(100% - 100px)!important; 
+      z-index: 1800;  
+      transition: 1s;
+      transform: translateX(100%); 
+    }
     .content-container{
       height: auto;
       width: 70%;
@@ -245,12 +371,19 @@ $zealand-buy: #477142;
         font-family: 'calibri';
         font-size: '15px';
         color: black;
+        @include mobile{
+          color: white;
+          line-height: 1.5em;           
+        }
       }
       .star-line{
         margin-top: 30px;
         height: 40px;
         display: flex;
         flex-direction: row;
+        @include mobile{
+          margin-top: 15px
+        }
         .star, .empty-star{
           height: 40px;
           width: 40px;
@@ -267,6 +400,10 @@ $zealand-buy: #477142;
         width: 90%;
         height: 40px;
         cursor: pointer;
+        @include mobile{
+          width: 250px;
+          margin-top: 15px
+        }
         &:hover{
           .butt-text{
             font-size: 25px;
