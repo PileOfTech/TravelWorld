@@ -26,7 +26,8 @@ $(document).ready(function() {
           el.removeClass("return");
         }
         window.scrollTo(0, 0);
-        $('button').removeClass('but-active');
+        $('.button').removeClass('but-active');
+        $('.name-tour').removeClass('act-name');
     }
     function whichTransitionEvent(){
       var t, el = document.createElement("fakeelement");
@@ -121,6 +122,9 @@ $(document).ready(function() {
       
       setTimeout(function() { 
         blockDown($('#fourth'), "sea-");
+        if(is_mobile){
+          $('.alaska-name').addClass('act-name');         
+        }         
         window.scrollTo(1200, 0);
       }, 4000);       
     }
@@ -129,14 +133,24 @@ $(document).ready(function() {
       toHic();
       setTimeout(function() { 
         blockLeft($('.egypt'));
-        $('.egypt-name').removeClass('return-name');
-        $('.egypt-name').addClass('name-slide'); 
+        if(!is_mobile){
+          $('.egypt-name').removeClass('return-name');
+          $('.egypt-name').addClass('name-slide');       
+        }else{
+          $('.alaska-name').removeClass('act-name'); 
+          $('.egypt-name').addClass('act-name');          
+        }
       }, 5100); 
       
       setTimeout(function() { 
         blockLeft($('.new-zeland'));
-        $('.new-zeland-name').addClass('zeland-name-slide');
-        $('.new-zeland-name').removeClass('return-name'); 
+        if(!is_mobile){
+          $('.new-zeland-name').addClass('zeland-name-slide');
+          $('.new-zeland-name').removeClass('return-name'); 
+        }else{
+            $('.egypt-name').removeClass('act-name');
+            $('.new-zeland-name').addClass('act-name');          
+        }
       }, 6200);
 
       setTimeout(function() { 
@@ -205,33 +219,59 @@ $(document).ready(function() {
           // $('#fourth').addClass('first-down');
           // $('#fourth').css('position', 'fixed');
           blockDown($('#fourth'), "sea-");
+          if(is_mobile){
+            $('.alaska-name').addClass('act-name');         
+          }          
         }
         if (scrolled < lastScroll && scrolled > 1700 && scrolled < 1900) {
           blockUp($('#fourth'), "sea-");
+          if(is_mobile){
+            $('.alaska-name').removeClass('act-name');         
+          }
         }
 
         //EGYPT
         if(scrolled > lastScroll && scrolled > 2400 && scrolled < 2700){
           blockLeft($('.egypt'));
-          $('.egypt-name').removeClass('return-name');
-          $('.egypt-name').addClass('name-slide');
+          if(!is_mobile){
+            $('.egypt-name').removeClass('return-name');
+            $('.egypt-name').addClass('name-slide');
+          }else{
+            $('.alaska-name').removeClass('act-name'); 
+            $('.egypt-name').addClass('act-name');
+          }
         }
         if(scrolled < lastScroll && scrolled > 2400 && scrolled < 2700){
           blockRight($('.egypt'));
-          $('.egypt-name').removeClass('name-slide');
-          $('.egypt-name').addClass('return-name');
+          if(!is_mobile){
+            $('.egypt-name').removeClass('name-slide');
+            $('.egypt-name').addClass('return-name');
+          }else{
+            $('.egypt-name').removeClass('act-name');
+            $('.alaska-name').addClass('act-name');
+          }
         }        
 
         //NEW ZEALAND
         if(scrolled > lastScroll && scrolled > 3000 && scrolled < 3300){
           blockLeft($('.new-zeland'));
-          $('.new-zeland-name').addClass('zeland-name-slide');
-          $('.new-zeland-name').removeClass('return-name');          
+          if(!is_mobile){
+            $('.new-zeland-name').addClass('zeland-name-slide');
+            $('.new-zeland-name').removeClass('return-name');          
+          }else{
+            $('.egypt-name').removeClass('act-name');
+            $('.new-zeland-name').addClass('act-name');
+          }
         }
         if(scrolled < lastScroll && scrolled > 3000 && scrolled < 3300){
           blockRight($('.new-zeland'));
-          $('.new-zeland-name').removeClass('zeland-name-slide');
-          $('.new-zeland-name').addClass('return-name');          
+          if(!is_mobile){
+            $('.new-zeland-name').removeClass('zeland-name-slide');
+            $('.new-zeland-name').addClass('return-name'); 
+          }else{
+            $('.new-zeland-name').removeClass('act-name');
+            $('.egypt-name').addClass('act-name');
+          }       
         }  
         
         //MOUNTAINS        
@@ -318,7 +358,7 @@ $(document).ready(function() {
       try{
         $('.red-slider').slick('unslick'); 
       }catch{
-        
+
       }
       $('.hic-modal-window').removeClass('open');
       $('body').css('overflow', 'scroll');
