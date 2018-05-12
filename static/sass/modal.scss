@@ -300,6 +300,12 @@ $desctop: 1200px;
   }      
 }
 
+
+.yellow-theme, .green-theme, .blue-theme{
+  .bottom-globus{
+    top: calc(100% - 110px)!important;
+  }
+}
 .theme, .yellow-theme, .green-theme, .red-theme, .blue-theme, .bali, .LA, .hawaii, .point-lobos{
   .act-desc{
     opacity: 1 !important;

@@ -363,6 +363,11 @@ $(document).ready(function() {
       $('.hic-modal-window').removeClass('open');
       $('body').css('overflow', 'scroll');
       $('.theme').removeClass('active');
+
+      $('.modal-globus').removeClass('act-globus');
+      $('.modal-globus').removeClass('bottom-globus');
+      $('.desc-block').removeClass('act-desc');
+      $('.desc-block').removeClass('right-desc');       
     });
 
     function slick(){

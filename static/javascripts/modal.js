@@ -43,13 +43,9 @@ $('.name-tour').click(function(){
   if(theme == "red"){
     $('.red-theme').addClass('active');
     slick();
-  }
-  if(theme == "yellow"){
-    $('.yellow-theme').addClass('active');
-  }      
-  if(theme == "green"){
-    $('.green-theme').addClass('active');
-  }        
+  }     
+  $('.'+theme+'-theme').addClass('active');
+  $('.'+theme+'-theme').children('.modal-globus').addClass('act-globus');    
 });
 
 
@@ -74,6 +70,9 @@ var skiData = [
 $('.ski-but').click(function(){
   $('.ski-modal-window').addClass('open');
   $('body').css('overflow', 'hidden');
+
+  $('.blue-theme').children('.modal-globus').addClass('act-globus');    
+
   var theme = $(this).attr('theme');
   if(theme == 'but-01'){
     $('.ski-title').text(skiData[0]["title"]);
@@ -96,6 +95,10 @@ $('.ski-but').click(function(){
 $('.close-ski').click(function(){
   $('.ski-modal-window').removeClass('open');
   $('body').css('overflow', 'scroll');
+  $('.modal-globus').removeClass('act-globus');
+  $('.modal-globus').removeClass('bottom-globus');
+  $('.desc-block').removeClass('act-desc');
+  $('.desc-block').removeClass('right-desc');  
 });
 
 
@@ -125,7 +128,7 @@ $('.j-close').click(function(){
     $('.side-image').removeClass("full-side");
     $('.button').removeClass('bottom-but');
     $('.content').removeClass('act-content');
-    $('.desc').removeClass('act-desc');
+    $('.desc').removeClass('act-desc');   
   }, 100);  
 });
 
