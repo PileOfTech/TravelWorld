@@ -1,6 +1,5 @@
 $('body').css('overflow-y', 'hidden');
 window.onload = function() {
-  console.log(navigator.userAgent);
   if (supportBrowser()){
     setTimeout(function(){
       $('.loader').removeClass('loader-active');
