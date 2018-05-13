@@ -13,6 +13,7 @@ gulp.task('styles', function() {
   .pipe(sass({ style: 'expanded' }))
   .pipe(sassmixins())
   .pipe(minifycss())
+  .pipe(autoprefixer())
   .pipe(concat('main.min.css'))
   .pipe(gulp.dest('static/css'));
 });

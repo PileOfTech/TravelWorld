@@ -9,7 +9,7 @@ $l-zealand: #d1face;
 $alaska-buy: #770e10;
 $egypt-buy: #cc9312;
 $zealand-buy: #477142;
-
+$sea: #068E8D;
 
 $full-desctop: 1400px;
 $desctop: 1200px;
@@ -27,7 +27,7 @@ $desctop: 1200px;
 }
 
 @mixin mobile{
-  @media (min-width: 321px) and (max-width: 628px){
+  @media (min-width: 311px) and (max-width: 628px){
     @content;
   }
 }
@@ -88,6 +88,51 @@ body::-webkit-scrollbar{
   width: 0;
 }
 
+
+.loader{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  display: none;
+  z-index: 4000;
+  background-color: white;
+  .globus-loader{
+    z-index: 4100;
+    height: 200px;
+    width: 200px;
+    margin: 0px auto;
+    margin-top: 200px;
+    background-size: cover;
+    background-image: url('images/ui/globus.png');
+    animation: rotate 1s infinite linear;
+    @include mobile{
+      height: 100px;
+      width: 100px;
+      margin-top: 45%;
+    }
+    @include full-desctop{
+      margin-top: 300px;    
+    }      
+  }
+  .text-loader{
+    color: $sea;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 50px;
+    font-family: 'helvetica';
+  }
+  @keyframes rotate{
+    to{
+      transform: rotate3d(0, 2, 0, 360deg);
+    }
+  }
+}
+.loader-active{
+  display: block !important;
+}
 .main-link{
   cursor: pointer;
 }

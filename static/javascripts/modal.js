@@ -1,7 +1,31 @@
+$('body').css('overflow-y', 'hidden');
+window.onload = function() {
+  setTimeout(function(){
+    $('.loader').removeClass('loader-active');
+    $('body').css('overflow-y', 'scroll');
+  },1000);
+};
+
 var width = $(window).width();
 var is_mobile = false;
 if(width < 768){
   is_mobile = true;
+}
+
+function slick(){
+  $(".red-slider").slick({
+    infinite: true,
+    speed: 500,
+    dots: true,
+    arrows: false,
+    centerMode: true,
+    centerPadding: '0px',
+    slidesToShow: 1,
+    autoplay: true,
+    autoplaySpeed: 2500,  
+    initialSlide: 1,
+    accessibility: false,
+  });
 }
 
 $('.globus').click(function(){
@@ -14,8 +38,10 @@ $('.modal-globus').click(function(){
   $(this).parent().children('.desc-block').toggleClass('act-desc');
 });
 
+$('.red-globus').click(function(){
+  $('.red-el').children('.desc-block').toggleClass('act-desc');
+});
 /*Modal controll for sea-slide*/
-// Каждую трутью строчку вынести в одну
 $('.tour').click(function(){
   $('body').css('overflow', 'hidden'); 
   var theme = $(this).attr('theme');
@@ -42,6 +68,7 @@ $('.name-tour').click(function(){
   var theme = $(this).attr('theme');
   if(theme == "red"){
     $('.red-theme').addClass('active');
+    $('.red-theme').children('.modal-globus').addClass('act-globus');  
     slick();
   }     
   $('.'+theme+'-theme').addClass('active');

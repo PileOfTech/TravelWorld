@@ -1,6 +1,6 @@
 $biruz: #61a08d;
 $l-biruz: #7ac8b4;
-$sea: #244fb2;
+$sea: #068E8D;//#068E8D
 $alaska: #cc1216;
 $egypt: #cc9312;
 $zealand: #3f8f36;
@@ -31,7 +31,7 @@ $desctop: 1200px;
 }
 
 @mixin mobile{
-  @media (min-width: 321px) and (max-width: 628px){
+  @media (min-width: 311px) and (max-width: 628px){
     @content;
   }
 }
@@ -76,13 +76,13 @@ $desctop: 1200px;
   right: 50px;
   background-size: cover;
   cursor: pointer;
-  z-index: 830;
+  z-index: 1900;
   @include mobile{
     height: 30px;
     width: 30px;
     top: 10px;
     right: 10px;
-    z-index: 1900;
+    z-index: 1900 !important;
   }
   @include desctop{
     &:hover{
@@ -141,7 +141,7 @@ $desctop: 1200px;
 .bali , .LA, .hawaii, .point-lobos, .blue-theme{    
   .content-container{
     .title{
-      color: $sea;
+      color: $sea !important;
     }
     .star-line{
       .star{
@@ -153,7 +153,7 @@ $desctop: 1200px;
     }  
     .button-buy{
       background-color: $l-sea;
-      color: $sea-buy;
+      color: $sea;
     }      
   }
 }
@@ -179,6 +179,11 @@ $desctop: 1200px;
   }    
 }
 .red-theme{
+  .shadow{
+    @include mobile{
+      background: linear-gradient(to bottom,rgba(0,0,0,0.4),rgba(0,0,0,.3));
+    }
+  }
   .slick-slider, .slick-list, .slick-track {
     height: 100%;
   }   
@@ -187,11 +192,17 @@ $desctop: 1200px;
   }
   .slick-dots {
       bottom: 40px;
+      @include mobile{
+        display: none;
+      }
       li{
         height: 20px !important;
         width: 20px !important;
         border-radius: 50%;
         background-color: $l-alaska;
+        @include mobile{
+          display: none !important;
+        }        
         &:hover{
           background-color: $alaska;
         }
@@ -225,10 +236,19 @@ $desctop: 1200px;
       width: 100%;
       display: flex;
       flex-direction: row;
+      @include mobile{
+        display: block;
+        width: 270px;
+      }
       .cover{
         background-color: grey;
       }
       .content-container{
+        @include mobile{
+          width: 250px;
+          margin-top: 50px;
+          margin-left: 55px;          
+        }
         .title{
           color: $alaska;
         }
@@ -301,7 +321,7 @@ $desctop: 1200px;
 }
 
 
-.yellow-theme, .green-theme, .blue-theme{
+.yellow-theme, .green-theme, .blue-theme, .red-theme{
   .bottom-globus{
     top: calc(100% - 110px)!important;
   }
@@ -364,6 +384,9 @@ $desctop: 1200px;
       width: 70%;
       margin-left: 15%;
       margin-top: 20%;
+      @include mobile{
+        margin-left: calc((100% - 250px)/2)
+      }
       .title{
         height: auto;
         font-weight: 500;

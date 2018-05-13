@@ -357,8 +357,8 @@ $(document).ready(function() {
     $('.close-hic').click(function(){
       try{
         $('.red-slider').slick('unslick'); 
-      }catch{
-
+      }catch(err){
+        
       }
       $('.hic-modal-window').removeClass('open');
       $('body').css('overflow', 'scroll');
@@ -369,20 +369,5 @@ $(document).ready(function() {
       $('.desc-block').removeClass('act-desc');
       $('.desc-block').removeClass('right-desc');       
     });
-
-    function slick(){
-      $(".red-slider").slick({
-        infinite: true,
-        speed: 500,
-        dots: true,
-        arrows: false,
-        centerMode: true,
-        centerPadding: '0px',
-        slidesToShow: 1,
-        autoplay: true,
-        autoplaySpeed: 1000,  
-        initialSlide: 1,
-      });
-    }
 
 });
