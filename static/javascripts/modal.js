@@ -1,10 +1,35 @@
 $('body').css('overflow-y', 'hidden');
 window.onload = function() {
-  setTimeout(function(){
-    $('.loader').removeClass('loader-active');
-    $('body').css('overflow-y', 'scroll');
-  },1000);
+  console.log(navigator.userAgent);
+  if (supportBrowser()){
+    setTimeout(function(){
+      $('.loader').removeClass('loader-active');
+      $('body').css('overflow-y', 'scroll');
+    },1000);
+  }else{
+    $(".text-loader").text(navigator.userAgent);
+    document.getElementById("globus-loader").style.display = 'none';
+    document.getElementById("browser-support").className += "act-support";
+  }
 };
+
+function supportBrowser(){
+  ua = navigator.userAgent;
+  var bName = function () {
+    if (ua.search(/Firefox/) > -1) return "firefox";
+    if (ua.search(/Opera/) > -1) return "opera";
+    if (ua.search(/Chrome/) > -1) return "chrome";
+    if (ua.search(/Safari/) > -1) return "safari";
+    if (ua.search(/UC/) > -1) return "uc";
+    if (ua.search(/Konqueror/) > -1) return "konqueror";
+    if (ua.search(/Iceweasel/) > -1) return "iceweasel";
+    if (ua.search(/SeaMonkey/) > -1) return "seamonkey";
+    if (ua.search(/OPR/) > -1) return "opera";
+    
+  }();
+  var list = ["uc", "firefox", "opera", "chrome", "safari"];
+  return list.includes(bName);
+}
 
 var width = $(window).width();
 var is_mobile = false;

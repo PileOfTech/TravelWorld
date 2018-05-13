@@ -99,6 +99,19 @@ body::-webkit-scrollbar{
   display: none;
   z-index: 4000;
   background-color: white;
+  #browser-support{
+    z-index: 4100;
+    height: 200px;
+    width: 400px;
+    background-color: grey;
+    display: none;   
+    position: relative;
+    margin: 0px auto; 
+    margin-top: 10px;
+  }
+  .act-support{
+    display: block !important;
+  }
   .globus-loader{
     z-index: 4100;
     height: 200px;
