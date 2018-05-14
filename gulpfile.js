@@ -5,12 +5,15 @@ minifycss = require('gulp-minify-css'),
 rename = require('gulp-rename'),
 concat = require('gulp-concat'),
 uglify = require('gulp-uglify'),
-order = require("gulp-order");
+order = require("gulp-order"),
+sassmixins = require('gulp-sass-to-postcss-mixins');
 
 gulp.task('styles', function() {
   return gulp.src('static/sass/*.scss')
   .pipe(sass({ style: 'expanded' }))
+  .pipe(sassmixins())
   .pipe(minifycss())
+  .pipe(autoprefixer())
   .pipe(concat('main.min.css'))
   .pipe(gulp.dest('static/css'));
 });

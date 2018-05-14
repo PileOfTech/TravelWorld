@@ -1,0 +1,17 @@
+[core]
+	bare = false
+	repositoryformatversion = 0
+	filemode = true
+	logallrefupdates = true
+[remote "TravelWorld"]
+	url = https://github.com/PileOfTech/TravelWorld.git
+	fetch = +refs/heads/*:refs/remotes/TravelWorld/*
+[branch "master"]
+	remote = TravelWorld
+	merge = refs/heads/master
+[branch "updateparallax"]
+	remote = TravelWorld
+	merge = refs/heads/updateparallax
+[branch "mobile"]
+	remote = TravelWorld
+	merge = refs/heads/mobile

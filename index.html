@@ -3,14 +3,24 @@
 <head>
   <title>Travel World</title>
   <link rel="stylesheet" type="text/css" href="static/css/main.min.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
 </head>
 <body>
+  <div class="loader loader-active">
+    <div id="globus-loader" class="globus-loader"></div>
+    <div id="browser-support"></div>
+    <div class="text-loader">Please wait, site is loading ...</div>
+  </div>
+  <!-- FIRST -->
   <div class="screen" id="first">
     <div class="shadow"></div>
 
     <div class="big-logo">
       <div class="logo"></div>
       <div class="logo-text">TravelWorld</div>
+      <div class="small-text">Chose your trip</div>
     </div>
 
     <div class="line">
@@ -26,21 +36,56 @@
       </a>
 
       <a id="mountains" class="im-link hicing">
-        <div class="text">Go to the mountains</div>
+        <div class="text">Go to the hicing</div>
         <div class="hover"></div>
       </a>
 
       <a id="liveit" class="im-link liveit">
-        <div class="text">LIVE IT</div>
+        <div class="text">Go to the mountains</div>
         <div class="hover"></div>
       </a>      
     </div>
+
+    <div class="plate">
+      <div class="globus"></div>
+    </div>
+
   </div>
 
   <!-- SECOND SECTION -->
   <div class="screen" id="second">
-    <div class="left side-image"></div> 
-    <div class="right side-image"></div>
+    <div class="left side-image" id="left">
+      <div class="j-close"></div>
+      <div class="shadow">
+        <div class="text">Cancun</div>
+
+        <div class="content">
+          <div class="desc">
+            <p>&emsp;&emsp;Ride in style in our four seater ‘Limo’ boat, book now as it’s subject to availability. If you have an odd number or younger children in your party, this is the perfect solution.</p> 
+
+            <p>&emsp;&emsp;Reserve the ´limo´ and enjoy the tour in the comfort and safety of our four person speedboat. The perfect solution if you’re looking for activities for kids in Cancun.</p>
+          </div>
+        </div>
+
+        <div class="button cancun-but">Details...</div>
+      </div>
+    </div> 
+    <div class="right side-image" id="right">
+      <div class="j-close"></div>
+      <div class="shadow">
+        <div class="text">Phang Nga</div>
+
+        <div class="content">
+          <div class="desc">
+            <p>&emsp;&emsp;Enjoy the Best White Water Rafting in Krabi over the most beautiful river Song Praek in Phang Nga province.</p>
+
+            <p>&emsp;&emsp;Welcome to the one-day tour with hotel transfer, delicious Thai Style Lunch, professional equipment and English speaking well-experienced guide.</p>
+          </div>
+        </div>
+
+        <div class="button nga-but">Details...</div>
+      </div>
+    </div>
     <div class="tree-cont">
 
       <div class="tree biruz">
@@ -55,15 +100,17 @@
   <!-- THIRD SECTION -->
   <div class="screen" id="third">
 
-
     <div class="sea-01">
-
-
+      <div class="sea-shadow"></div>
       <div class="sea-modal-window sea-modal-window-01 modal-window">
         <div class="close-sea"></div>
         
         <!-- HAWAII -->
         <div class="hawaii theme">
+            <div class="shadow"></div>
+
+            <div class="modal-globus"></div>
+
             <div class="desc-block">
               <div class="content-container">          
                 <div class="title">Hawaii</div>
@@ -92,11 +139,15 @@
             <div class="cover"></div>          
         </div>
 
-        <!-- Point Lobos -->
+        <!-- Point lobos -->
         <div class="point-lobos theme">
+            <div class="shadow"></div>
+
+            <div class="modal-globus"></div>
+            
             <div class="desc-block">
               <div class="content-container">          
-                <div class="title">Point Lobos</div>
+                <div class="title">Point-lobos</div>
                 
                 <div class="text">
                   &emsp;&emsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
@@ -125,38 +176,40 @@
       </div>
 
       <div class="main-link logo-cont">
-        <div class="text">Trawelworld</div>
+        <div class="text">Travelworld</div>
         <div class="logo"></div>
       </div>
 
       <div class="info-cont">  
         <div class="tours">
-
-          <div class="tour hawaii-tour" theme="hawaii">
+          <div class="tour bali-tour" theme="hawaii">
             <div class="title">Hawaii</div>
           </div>
-
-          <div class="tour point-lobos-tour" theme="PL">
-            <div class="title">PointLobos</div>
+          <div class="tour LA-tour " theme="point-lobos">
+            <div class="title">Point Lobobs</div>
           </div>
-
         </div>
 
         <div class="desc">
-          <div class="title">Diving</div>
+          <div class="title">Beaches</div>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
         </div>
       
-      </div>
+      </div>        
+
     </div>
 
     <div class="sea-02">
-
+      <div class="sea-shadow"></div>
       <div class="sea-modal-window sea-modal-window-02 modal-window">
         <div class="close-sea"></div>
         
         <!-- BALI -->
         <div class="bali theme">
+            <div class="shadow"></div>
+
+            <div class="modal-globus"></div>
+
             <div class="desc-block">
               <div class="content-container">          
                 <div class="title">Bali</div>
@@ -187,6 +240,10 @@
 
         <!-- LA -->
         <div class="LA theme">
+            <div class="shadow"></div>
+
+            <div class="modal-globus"></div>
+            
             <div class="desc-block">
               <div class="content-container">          
                 <div class="title">Los Angeles</div>
@@ -218,7 +275,7 @@
       </div>
 
       <div class="main-link logo-cont">
-        <div class="text">Trawelworld</div>
+        <div class="text">Travelworld</div>
         <div class="logo"></div>
       </div>
 
@@ -252,10 +309,13 @@
       <!-- RED THEME -->
       <div class="theme red-theme">
         <div class="close-hic"></div>
-        
+
+        <div class="modal-globus red-globus"></div>
+
         <div class="red-slider">
           <!-- red-el -->
           <div class="red-el">
+            <div class="shadow"></div>
             <div class="desc-block">
               <div class="content-container">          
                 <div class="title">Alaska-travel</div>
@@ -286,6 +346,7 @@
 
           <!-- red-el -->
           <div class="red-el">
+            <div class="shadow"></div>
             <div class="desc-block">
               <div class="content-container">          
                 <div class="title">Alaska-travel</div>
@@ -316,6 +377,7 @@
 
           <!-- red-el -->
           <div class="red-el">
+            <div class="shadow"></div>
             <div class="desc-block">
               <div class="content-container">          
                 <div class="title">Alaska-travel</div>
@@ -351,6 +413,9 @@
       <div class="theme yellow-theme">
         <div class="close-hic"></div>
 
+        <div class="shadow"></div>
+        <div class="modal-globus"></div>
+
         <div class="desc-block">
           <div class="content-container">          
             <div class="title">Felucca Odysey</div>
@@ -383,6 +448,9 @@
       <div class="theme green-theme">
         <div class="close-hic"></div>
 
+        <div class="shadow"></div>
+        <div class="modal-globus"></div>
+
         <div class="desc-block">
           <div class="content-container">          
             <div class="title">New Zealand Grand</div>
@@ -414,7 +482,7 @@
     </div>
 
     <div class="main-link logo-cont">
-      <div class="text">Trawelworld</div>
+      <div class="text">Travelworld</div>
       <div class="logo"></div>
     </div> 
 
@@ -439,7 +507,71 @@
     </div>
   </div>
 
+  <!-- FIFTH -->
   <div class="screen" id="fifth">
+  
+    <div class="main-link logo-cont">
+      <div class="text">Travelworld</div>
+      <div class="logo"></div>
+    </div>   
+    <!-- Модалки -->
+    <div class="ski-modal-window modal-window">
+
+      <div class="theme blue-theme">
+        <div class="close-ski"></div>
+
+        <div class="shadow"></div>
+        <div class="modal-globus"></div>
+
+        <div class="desc-block">
+          <div class="content-container">          
+            <div class="title ski-title"></div>
+            
+            <div class="text ski-text">
+              &emsp;&emsp;
+            </div>
+            
+            <div class="star-line">
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+            </div>
+          
+            <div class="button-buy">
+              <div class="butt-text">
+                Buy this tour now
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="cover ski-cover"></div>
+      </div>  
+
+    </div>
+
+    <div class="girl"></div>
+    <div class="right">
+      <div class="description">
+        <div class="title">Skiing</div>
+        <div class="text">Explore the most popular trails in Oregon with hand-curated trail maps and driving directions as well as detailed reviews and photos from hikers, campers and nature lovers like you.</div>  
+
+        <div class="button but-01 ski-but" theme="but-01">Kirchdorf</div>
+        <div class="button but-02 ski-but" theme="but-02">Queenstown</div> 
+        <div class="button but-03 ski-but" theme="but-03">Japanese</div>    
+      </div>   
+
+    </div>
+
+    <div class="mount mount-01"></div>
+    <div class="mount mount-02"></div>
+    <div class="mount mount-03"></div>
+  </div>
+
+  <div class="screen" id="six">
     <div class="paper"></div>
 
     <div class="gothere jungle">
@@ -459,10 +591,12 @@
     </div>
   </div>
 
-  <div class="screen" id="six"></div>
+
+  <div class="screen" id="seven"></div>
 
   <script type="text/javascript" src="static/javascripts/jquery.min.js"></script>
   <script type="text/javascript" src="static/javascripts/slick.min.js"></script>  
   <script type="text/javascript" src="static/javascripts/parallax.js"></script>
+  <script type="text/javascript" src="static/javascripts/modal.js"></script>  
 </body>
 </html>
