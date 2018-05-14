@@ -26,6 +26,12 @@ $desctop: 1200px;
   }
 }
 
+@mixin large{
+  @media (min-width: 1700px){
+    @content;
+  }
+}
+
 @mixin smobile{
   @media (min-width: 311px) and (max-width: 359px){
     @content;
@@ -472,6 +478,12 @@ body::-webkit-scrollbar{
       font-size: 25px;
       margin-top: 57%;
     }
+    @include full-desctop{
+      margin-top: 20%;
+    }
+    @include large{
+      font-size: 110px;
+    }
   }
 }
 
@@ -818,8 +830,11 @@ body::-webkit-scrollbar{
     @include mobile{
       height: 100%;
       width: 100%;
-      margin-top: 140px;
+      margin-top: 60px;
       flex-direction: column;
+    }
+    @include full-desctop{
+      margin-top: calc((100% - 300px)/4);
     }
     .tours{
       min-width: 700px;
@@ -830,6 +845,7 @@ body::-webkit-scrollbar{
         min-width: 100%;
         max-width: 100%;        
         height: 100px;
+
       }
       .tour{
         height: 50%;
@@ -846,7 +862,7 @@ body::-webkit-scrollbar{
           border: 2px solid white;
           border-radius: 75px;
           margin: 0px auto;
-          margin-top: 20px;
+          margin-top: 15px;
         }
         @include desctop{
           &:hover{
@@ -890,7 +906,7 @@ body::-webkit-scrollbar{
       width: 100%;
       height: 100%;
       @include mobile{
-        margin-top: 60px;
+        margin-top: 30px;
         height: 50%;
       }
       .title{
@@ -901,9 +917,17 @@ body::-webkit-scrollbar{
         font-family: 'stolsl';
         color: white;
         @include mobile{
+          padding-left: 0px;
           position: relative;
           top: 0px;
+          width: 250px;
+          font-size: 30px;
+          margin: 0px auto; 
         }
+        @include full-desctop{
+          top: 0px;
+          font-size: 35px;
+        }        
       }
       p{
         color: white;
@@ -921,7 +945,11 @@ body::-webkit-scrollbar{
           width: 250px;
           margin: 0px auto;       
           margin-top: 15px;
+          font-size: 13px;
         }
+        @include full-desctop{
+          font-size: 17px;
+        }        
       }
     }
   }
@@ -1044,6 +1072,9 @@ body::-webkit-scrollbar{
         font-size: 15px;
         line-height: 1.5;
         font-family: 'Arial';
+        @include full-desctop{
+          font-size: 18px;
+        }
       }
 
     }
@@ -1363,8 +1394,12 @@ body::-webkit-scrollbar{
       padding-top: 130px;
       @include mobile{
         width: 100%;
-        font-size: 160px;
+        font-size: 130px;
         line-height: 1.3em;
+      }
+      @include smobile{
+        padding-top: 100px;
+        font-size: 120px;
       }
     }     
   }

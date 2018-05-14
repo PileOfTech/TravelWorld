@@ -98,6 +98,7 @@ $desctop: 1200px;
 .theme{
   height: 100%;
   width: 100%;
+          margin: 0px auto; 
   position: absolute;
   display: flex;
   flex-direction: row;
@@ -249,6 +250,7 @@ $desctop: 1200px;
           margin-top: 50px;
           margin-left: 55px;          
         }
+
         .title{
           color: $alaska;
         }
@@ -385,7 +387,10 @@ $desctop: 1200px;
       margin-left: 15%;
       margin-top: 20%;
       @include mobile{
-        margin-left: calc((100% - 250px)/2)
+        width: 260px;
+        margin-top: 30px;
+        margin-left: calc((100% - 250px)/2);
+
       }
       .title{
         height: auto;
@@ -393,17 +398,26 @@ $desctop: 1200px;
         font-size: 35px;
         line-height: 1.2;
         font-family: 'arial-black';
+        @include mobile{
+          font-size: 30px;
+        }
+        @include full-desctop{
+          font-size: 45px; 
+        }        
       }
       .text{
         padding-top: 20px;
         height: auto;
         font-family: 'calibri';
-        font-size: '15px';
+        font-size: 13px;
         color: black;
         @include mobile{
           color: white;
           line-height: 1.5em;           
         }
+        @include full-desctop{
+          font-size: 18px;
+        }        
       }
       .star-line{
         margin-top: 30px;
@@ -411,7 +425,8 @@ $desctop: 1200px;
         display: flex;
         flex-direction: row;
         @include mobile{
-          margin-top: 15px
+          margin-top: 15px;
+          height: 35px;
         }
         .star, .empty-star{
           height: 40px;
@@ -419,6 +434,10 @@ $desctop: 1200px;
           background-size: cover;
           background-position: center;
           cursor: pointer;
+          @include mobile{
+            height: 35px;
+            width: 35px;
+          }
           &:not(:first-child){
             margin-left: 4px;
           }
